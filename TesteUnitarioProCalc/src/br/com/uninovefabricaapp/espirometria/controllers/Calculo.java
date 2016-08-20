@@ -146,6 +146,22 @@ public class Calculo {
       
     static double[][] variaveis = new double[7][2];
     
+     /**************************************************************************************]
+     * Os valores das variaveis estão sendo representadas como:
+     * 
+     * variaveis [0][0], variaveis[0][1] equivalem a CV Previsto e  CV Inferior
+     * 
+     * variaveis [1][0], variaveis[1][1] equivalem a CVF Previsto e CVF Inferior
+     * 
+     * variaveis [2][0], variaveis[2][1] equivalem a VEF Previsto e VEF Inferior
+     * 
+     * variaveis [3][0], variaveis[3][1] equivalem a FEF Previsto e FEF Inferior
+     * 
+     * variaveis [4][0], variaveis[4][1] equivalem a VEFCVF Previsto e VEFCVF Inferior
+     * 
+     * variaveis [5][0], variaveis[5][1] equivalem a FEFCVF Previsto e FEFCVF Inferior
+     *
+     */
     ///Arredondamento para cima do valor // duas casas decimais
     public double arredondar(double num,int casasDecimais){
         double result = Math.ceil(num);
@@ -154,9 +170,19 @@ public class Calculo {
     
     public Resultado calcular(Pessoa pessoa){
         Resultado res = new Resultado();
+        ResultadoItem  resItemcv = new ResultadoItem();
+        ResultadoItem  resItemcvf = new ResultadoItem();
+        ResultadoItem  resItemvef = new ResultadoItem();
+        ResultadoItem  resItemfef = new ResultadoItem();
+        ResultadoItem  resItemvefcvf = new ResultadoItem();
+        ResultadoItem  resItemfeefcvf = new ResultadoItem();
+        
+       
         switch(pessoa.getSexo()){
             case 'm':
                 if(pessoa.getIdade() < 14){
+                    
+                    
                     //CVF Previsto
                     variaveis[1][0] = arredondar(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondamentoCVFPrevisto - numSubtracaoCVFPrevisto),2);
                     //CVF Inferior
