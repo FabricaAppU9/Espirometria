@@ -73,7 +73,77 @@ public class Calculo {
     static double numArredondarFEFCVFPrevistoMaior242 = 0.4407;
     static double numArredondarFEFCVFInferiorMaior241 = 0.6;
     
-            
+    //variaveis de arredondamento e subtracao feminino 
+    static double numArredondarCVFFemininoPrevisto = 0.02417;
+    static double numArredondarCVFFemininoPrevisto2 = 0.0561;
+    static double numArredondarCVFFemininoPrevisto3 = 0.01;
+    static double numArredondarCVFFemininoPrevisto4 = 2.2197;
+    static double numSubtracaoCVFFemininoPrevisto = 0.477;
+    
+    static double numArredondamentoVEFFemininoPrevisto = 0.02336;
+    static double numArredondamentoVEFFemininoPrevisto2 = 0.0499;
+    static double numArredondamentoVEFFemininoPrevisto3 = 0.008;
+    static double numArredondamentoVEFFemininoPrevisto4 = 2.124;
+    static double numSubtracaoVEFFemininoPrevisto = 0.429;
+    
+    static double numArredondamentoFEFFemininoPrevisto = 2.0561;
+    static double numArredondamentoFEFFemininoPrevisto2 = 0.2791;
+    static double numSubtracaoFEFFemininoPrevisto = 9.9287;
+    static double numArredondamentoFEFFemininoInferior = 0.74;
+    
+    static double numArredondamentoveVEFCVFemininoPrevisto = 93;
+    static double numArredondamentoveVEFCVFemininoInferior = 81;
+    
+    static double numArredondamentoFEFCVFFemininoPrevisto = 120;
+    static double numArredondamentoFEFCVFFemininoInferior = 90;
+    
+    //numeros magicos de idade <= 19
+    
+    static double numArredondarCVFFemininoPrevisto19 = 1.7374;
+    static double numArredondarCVFFemininoPrevisto192 = 0.2823;
+    static double numArredondarCVFFemininoPrevisto193 = 0.1491;
+    static double numSubtracaoCVFFemininoPrevisto19 = 9.0562;
+    static double numArredondarCVFFemininoInferior19 = 0.87;
+    
+    static double numArredondamentoVEFFemininoPrevisto19 = 1.9293;
+    static double numArredondamentoVEFFemininoPrevisto191 = 0.2255;
+    static double numArredondamentoVEFFemininoPrevisto192 = 0.1105;
+    static double numSubtracaoVEFFemininoPrevisto19 = 9.81;
+    static double numArredondamentoVEFFemininoInferior19 = 0.87;
+    
+    static double numArredondamentoFEFFemininoPrevisto19 = 2.0561;
+    static double numArredondamentoFEFFemininoPrevisto191 = 0.2791;
+    static double numSubtracaoFEFFemininoPrevisto192 = 9.9287;
+    static double numArredondamentoFEFInferior19 = 0.91;
+    
+    static double numVEFCVFFemininoPrevisto19 = 97;
+    static double numVEFCVFFemininoInferior19 = 88;
+    
+    //numeros magicos para feminino idade maior que 19
+    
+    static double numArredondamentoCVFFemininoPrevistoMaior19 = 0.0433;
+    static double numArredondamentoCVFFemininoPrevistoMaior191 = 0.0164;
+    static double numSubtracaoCVFFemininoPrevistoMaior19 = 2.967;
+    static double numSubtracaoCVFFemininoInferiorMaior19 = 0.556;
+    
+    static double numArredondamentoVEFFemininoPrevistoMaior19 = 0.0338;
+    static double numArredondamentoVEFFemininoPrevistoMaior191 = 0.021;
+    static double numSubtracaoVEFFemininoPrevistoMaior192 = 1.782;
+    static double numSubtracaoVEFFemininoInferiorMaior19 = 0.433;
+    
+    static double numArredondamentoFEFFemininoPrevistoMaior19 = 1.2843;
+    static double numArredondamentoFEFFemininoPrevistoMaior191 = 0.6546;
+    static double numSubtracaoFEFFemininoPrevistoMaior192 = 3.0208;
+    static double numArredondamentoFEFFemininoInferiorMaior19 = 0.6;
+    
+    static double numArredondamentoVEFCVFFemininoPrevistoMaior19 = 4.8707;
+    static double numArredondamentoVEFCVFFemininoPrevistoMaior191 = 0.1212;
+    static double numArredondamentoVEFCVFFemininoInferiorMaior19 = 0.9;
+    
+    static double numArredondamentoFEFCVFFemininoPrevistoMaior19 = 6.1032;
+    static double numArredondamentoFEFCVFFemininoPrevistoMaior191 = 0.4237;
+    static double numArredondamentoFEFCVFFemininoInferiorMaior19 = 0.6;
+      
     static double[][] variaveis = new double[7][2];
     
     ///Arredondamento para cima do valor // duas casas decimais
@@ -157,7 +227,7 @@ public class Calculo {
                 }else if(pessoa.getIdade() > 24){
                     
                     //cvf Previsto
-                    variaveis[1][0] = arredondar(pessoa.getAltura() * numArredondarCVFInferiorMaior241 - pessoa.getIdade() * numArredondarCVFPrevistoMaior242 , 2);
+                    variaveis[1][0] = arredondar(pessoa.getAltura() * numArredondarCVFPrevistoMaior241 - pessoa.getIdade() * numArredondarCVFPrevistoMaior242 , 2);
                     //cvf Inferior
                     variaveis[1][1] = arredondar(variaveis[1][0] - numSubtracaoCVFInferiorMaior241, 2);
                     
@@ -192,9 +262,124 @@ public class Calculo {
             case 'f':
                 if(pessoa.getIdade() < 14){
                     
+                    //cvf previsto
+                    variaveis[1][0] = arredondar(pessoa.getAltura() * numArredondarCVFFemininoPrevisto + pessoa.getIdade() * numArredondarCVFFemininoPrevisto2 + pessoa.getMassa() * numArredondarCVFFemininoPrevisto3 - numArredondarCVFFemininoPrevisto4, 2);
+                    //cvf inferior 
+                    variaveis[1][1] = arredondar(variaveis[1][0] - numSubtracaoCVFFemininoPrevisto, 2);
+                    
+                    //cv previsto 
+                    variaveis[0][0] = variaveis[1][0];
+                    //cv inferior 
+                    variaveis[0][1] = variaveis[1][1];
+                    
+                    //vef previsto
+                    variaveis[2][0] = arredondar(pessoa.getAltura() * numArredondamentoVEFFemininoPrevisto + pessoa.getIdade() * numArredondamentoVEFFemininoPrevisto2 +pessoa.getMassa() * numArredondamentoVEFFemininoPrevisto3 - numArredondamentoVEFFemininoPrevisto4, 2);
+                    //vef inferior
+                    variaveis[2][1] = arredondar(variaveis[2][0] - numSubtracaoVEFFemininoPrevisto, 2);
+                    
+                    //fef previsto
+                    variaveis[3][0] = arredondar(Math.pow(NEPER,Math.log(pessoa.getAltura()) * numArredondamentoFEFFemininoPrevisto +Math.log(pessoa.getIdade()) * numArredondamentoFEFFemininoPrevisto2 - numSubtracaoFEFFemininoPrevisto), 2);
+                    //fef inferior
+                    variaveis[3][1] = arredondar(variaveis[3][0] * numArredondamentoFEFFemininoInferior, 2);
+                    
+                    //vefcvf previsto
+                    variaveis[4][0] = numArredondamentoveVEFCVFemininoPrevisto;
+                    //vefcvf inferior
+                    variaveis[4][1] = numArredondamentoveVEFCVFemininoInferior;
+                    
+                    //fefcvf previsto
+                    variaveis[5][0] = numArredondamentoFEFCVFFemininoPrevisto;
+                    //fefcvf inferior
+                    variaveis[5][1] = numArredondamentoFEFCVFFemininoInferior;
+                }else if(pessoa.getIdade() <= 19){
+                    
+                    //cvf previsto
+                    variaveis[1][1] = arredondar(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondarCVFFemininoPrevisto19 + Math.log(pessoa.getIdade()) * numArredondarCVFFemininoPrevisto192 +Math.log(pessoa.getMassa()) * numArredondarCVFFemininoPrevisto193 - numSubtracaoCVFFemininoPrevisto19), 2);
+                    //cvf inferior
+                    variaveis[1][1] = arredondar(variaveis[1][0] * numArredondarCVFFemininoInferior19, 2);
+                    
+                    //cv previsto
+                    variaveis[0][0] = variaveis[1][0];
+                    //cv inferior
+                    variaveis[1][0] = variaveis[1][1];
+                    
+                    //vef previsto
+                    variaveis[2][0] = arredondar(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondamentoVEFFemininoPrevisto19 +Math.log(pessoa.getIdade()) * numArredondamentoVEFFemininoPrevisto191 + Math.log(pessoa.getMassa()) * numArredondamentoVEFFemininoPrevisto192 - numSubtracaoVEFFemininoPrevisto19), 2);
+                    //vef inferior
+                    variaveis[2][1] = arredondar(variaveis[2][0] * numArredondamentoVEFFemininoInferior19, 2);
+                    
+                    //fef previsto
+                    variaveis[3][0] = arredondar(Math.pow(NEPER,Math.log(pessoa.getAltura()) * numArredondamentoFEFFemininoPrevisto19 + Math.log(pessoa.getIdade()) * numArredondamentoFEFFemininoPrevisto191 - numSubtracaoFEFFemininoPrevisto192), 2);
+                    //fef inferior
+                    variaveis[3][1] = arredondar(variaveis[3][0] * numArredondamentoFEFInferior19, 2);
+                    
+                    //vefcvf previsto
+                    variaveis[4][0] = numVEFCVFFemininoPrevisto19;
+                    //vefcvf inferior
+                    variaveis[4][1] = numVEFCVFFemininoInferior19;
+                    
+                }else if(pessoa.getIdade() > 19){
+                    
+                    //cvf previsto
+                    variaveis[1][0] = arredondar(pessoa.getAltura() * numArredondamentoCVFFemininoPrevistoMaior19 - pessoa.getIdade() * numArredondamentoCVFFemininoPrevistoMaior191 - numSubtracaoCVFFemininoPrevistoMaior19, 2);
+                    //cvf inferior
+                    variaveis[1][1] = arredondar(variaveis[1][0] - numSubtracaoCVFFemininoInferiorMaior19, 2);
+                    
+                    //cv previsto
+                    variaveis[0][0] = variaveis[1][0];
+                    //cv inferior 
+                    variaveis[0][1] = variaveis[1][1];
+                    
+                    //vef previsto
+                    variaveis[2][0] = arredondar(pessoa.getAltura() * numArredondamentoVEFFemininoPrevistoMaior19 - pessoa.getIdade() * numArredondamentoVEFFemininoPrevistoMaior191 - numSubtracaoVEFFemininoPrevistoMaior192, 2);
+                    //vef inferior
+                    variaveis[2][1] = arredondar(variaveis[2][0] - numSubtracaoVEFFemininoInferiorMaior19, 2);
+                    
+                    //fef previsto
+                    variaveis[3][0] = arredondar(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondamentoFEFFemininoPrevistoMaior19 - Math.log(pessoa.getIdade()) * numArredondamentoFEFFemininoPrevistoMaior191 - numSubtracaoFEFFemininoPrevistoMaior192), 2);
+                    //fef inferior
+                    variaveis[3][1] = arredondar(variaveis[3][0] * numArredondamentoFEFFemininoInferiorMaior19, 2);
+                    
+                    //vefcvf previsto 
+                    variaveis[4][0] = arredondar(Math.pow(NEPER, numArredondamentoVEFCVFFemininoPrevistoMaior19 - Math.log(pessoa.getIdade()) * numArredondamentoVEFCVFFemininoPrevistoMaior191), 0);
+                    //vefcvf inferior
+                    variaveis[4][1] = arredondar(variaveis[4][0] * numArredondamentoVEFCVFFemininoInferiorMaior19, 0);
+                    
+                    //fefcvf previsto
+                    variaveis[5][0] = arredondar(Math.pow(NEPER, numArredondamentoFEFCVFFemininoPrevistoMaior19 - Math.log(pessoa.getIdade()) * numArredondamentoFEFCVFFemininoPrevistoMaior191), 0);
+                    //fefcvf inferior
+                    variaveis[5][1] = arredondar(variaveis[5][0] * numArredondamentoFEFCVFFemininoInferiorMaior19, 0);
+                    
+                    
                 }
                 break;
+            default:
+                System.out.println("Esta sexo não foi reconhecido.");
+                System.exit(0);
         }
+        //Resultados:
+        System.out.println("\n ====== Pro calc ====== ");
+        
+        if(pessoa.getIdade()<6){
+            System.out.println("Obs.: A idade do paciente está abaixo da faixa regida pela SBPT");
+            
+        }else if(pessoa.getIdade()>76){
+            System.out.println("Obs.: A idade do paciente está acima da faixa regida pela SBPT");
+            
+            System.out.println("cvf previsto: "+variaveis[1][0]);
+            System.out.println("cvf inferior "+variaveis[1][1]);
+            System.out.println("cv previsto "+variaveis[2][0]);
+            System.out.println("cv inferior "+variaveis[2][1]);
+            System.out.println("vef previsto "+variaveis[3][0]);
+            System.out.println("vef inferior "+variaveis[3][1]);
+            System.out.println("fef previsto "+variaveis[4][0]);
+            System.out.println("fef inferior "+variaveis[4][1]);
+            System.out.println("vefcvf previsto "+variaveis[5][0]);
+            System.out.println("vefcvf inferior "+variaveis[5][1]);
+            System.out.println("fefcvf previsto "+variaveis[6][0]);
+            System.out.println("fefcvf inferior "+variaveis[6][1]);
+        }
+        
         return res;
     }
     

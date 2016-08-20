@@ -1,12 +1,16 @@
 
 package br.com.uninovefabricaapp.espirometria.controllers;
 
+import br.com.uninove.fabricaapp.espirometria.models.Pessoa;
+import br.com.uninove.fabricaapp.espirometria.models.Resultado;
+
 /**
 *
 *@author Bianca Guilherme
 *
 **/
 public class CalculoBase {
+    static double[][] variaveis = new double[7][2];
     
     static final double NEPER = 2.7183;
 
@@ -212,20 +216,21 @@ public class CalculoBase {
 					variaveis[3][1] = arredondar(variaveis[3][0] * 0.6, 2);
 
 					//vefcvf previsto
-					variaveis[4][0] = arredondar(Math.pow(NEPER, 4.8707 - Math.log(pessoa.getIdade()) * 0.1212,0);
+					variaveis[4][0] = arredondar(Math.pow(NEPER, 4.8707 - Math.log(pessoa.getIdade()) * 0.1212),0);
 					//vefcvf inferior
 					variaveis[4][1] = arredondar(variaveis[4][0] * 0.9,0);
 
 					//fefcvf previsto
-					variaveis[5][0] = arredondar(Math.pow(NEPER, 4.8707 - Math.log(pessoa.getIdade()) * 0.4237,0);
+					variaveis[5][0] = arredondar(Math.pow(NEPER, 4.8707 - Math.log(pessoa.getIdade()) * 0.4237),0);
 					//vefcvf inferior
 					variaveis[5][1] = arredondar(variaveis[5][0] * 0.6,0);
     			}
     		break;
     		default:
     			//sexo não reconhecido.
-    	}
-    }
-
+        }
+        return res;
+     }
+ 
     
 }
