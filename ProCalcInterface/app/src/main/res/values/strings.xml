@@ -21,4 +21,11 @@
 
     <!-- Menu -->
     <string name="btnSobre">Sobre</string>
+
+    <!-- Activitie Informações -->
+    <string name="textoSobre">Calculadore de Previstos ou Teóricos para a população Brasileira</string>
+    <string name="textoSobre2">De acordo com as equações de Pereira - 1992 {Pneumobil} e Mallozi - 19995</string>
+    <string name="textoSobre3">Autor: Dr. Sérgio R. Nacif - Trabalho de Mestrado - Univap 2006</string>
+
+    <string name="textoSobre4">Desenvolvido por: Fábrica de Apps Uninove - 2016</string>
 </resources>
