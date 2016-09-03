@@ -1,13 +1,15 @@
 package br.com.uninove.fabricaapp.espirometria.controllers;
 
-import models.Pessoa;
+import br.com.uninove.fabricaapp.espirometria.models.*;
 import models.ResultadoValidacao;
+
+
 
 /**
  *
  * @author Guilherme & Junior
  */
-public class ValidacaoAltura implements ItemValidacao {    
+public class ValidacaoAlturaIdade implements ItemValidacao {    
     
     //Pegando Alturas por faixa de idade Masculinas 6 - 14 anos
     private final double limiteMinAlturaMasc1 = 1.15;
@@ -46,7 +48,6 @@ public class ValidacaoAltura implements ItemValidacao {
         return resultado;
     }
     
-    @Override
     public ResultadoValidacao validar(Pessoa pessoa) {
         ResultadoValidacao res = new ResultadoValidacao();
         switch(pessoa.getSexo()){
@@ -92,5 +93,8 @@ public class ValidacaoAltura implements ItemValidacao {
         }
         return res;
     }
+
+ 
+
     
 }

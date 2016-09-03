@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package models;
+package br.com.uninove.fabricaapp.espirometria.models;
 
 /**
  *
@@ -19,14 +19,14 @@ public class ResultadoItem {
         this.previsto = previsto;
     }
 
-    public double getLimite() {
-        return limite;
+    public double getInferior() {
+        return inferior;
     }
 
-    public void setLimite(double limite) {
-        this.limite = limite;
+    public void setInferior(double limite) {
+        this.inferior = limite;
     }
     private double previsto;
-    private double limite;
+    private double inferior;
    
 }

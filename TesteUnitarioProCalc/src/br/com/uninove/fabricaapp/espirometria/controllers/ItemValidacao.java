@@ -1,6 +1,6 @@
 package br.com.uninove.fabricaapp.espirometria.controllers;
 
-import models.Pessoa;
+import br.com.uninove.fabricaapp.espirometria.models.Pessoa;
 import models.ResultadoValidacao;
 
 /**
