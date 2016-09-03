@@ -217,7 +217,7 @@ public class Calculo {
                     //CVF Previsto
                     resCvf.setPrevisto(arredondar(Math.pow(NEPER, Math.log(pessoa.getAltura()) * 1.31 + Math.log(pessoa.getIdade()) * 0.317 + Math.log(pessoa.getMassa()) * 0.3529 -76487),2));
                     //CVF Inferior
-                    resCvf.setInferior(arredondar(resCvf.getPrevisto() * numArredondamentoCVFInferior241,2));
+                    resCvf.setInferior(arredondar(resCvf.setInferior() * numArredondamentoCVFInferior241,2));
 
                     //CV Previsto
                     resCv.setPrevisto(resCvf.getPrevisto());
@@ -228,12 +228,12 @@ public class Calculo {
                     //vef Previsto
                     resVef.setPrevisto(arredondar(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondamentoVEFPrevisto241 + Math.log(pessoa.getIdade()) * numArredondamentoVEFPrevisto242 + Math.log(pessoa.getMassa()) * numArredondamentoVEFPrevisto243 - numSubtracaoVEFPrevisto241),2));
                     //vef Inferior
-                    resVef.setInferior(arredondar(resVef.getPrevisto() * numArredondamentoVEFInferior241,2));
+                    resVef.setInferior(arredondar(resVef.setInferior() * numArredondamentoVEFInferior241,2));
                     
                     //fef Previsto
                     resFef.setPrevisto(arredondar(arredondar(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondamentoFEFPrevisto241 + Math.log(pessoa.getMassa()) * numArredondamentoFEFPrevisto242 - numSubtracaoFEFPrevisto241),2), 2));
                     //fef Inferior
-                    resFef.setInferior(arredondar(resFef.getPrevisto() * numArredondamentoFEFInferior241, 2));
+                    resFef.setInferior( arredondar(resFef.setInferior() * numArredondamentoFEFInferior241, 2));
                     
                     //vefcvf Previsto
                     resVefCvf.setPrevisto(numVEFCVFPrevisto241);
