@@ -12,10 +12,10 @@ import espirometria.fabricaapp.uninove.com.br.procalc.models.Pessoa;
 /**
  * Created by internet on 27/08/2016.
  */
-public class HomeActivityHelper implements ViewHelper {
-    private final EditText txtAltura;
-    private final EditText txtIdade;
-    private final EditText txtPeso;
+public class HomeActivityHelper {
+    private  EditText txtAltura;
+    private  EditText txtIdade;
+    private  EditText txtPeso;
 
     private Pessoa pessoa;
 
@@ -26,7 +26,14 @@ public class HomeActivityHelper implements ViewHelper {
         pessoa = new Pessoa();
     }
 
-    public Pessoa getPessoa(){
+
+
+    public Pessoa getModel(Activity activity) {
+        /*MainActivity mainActivity = (MainActivity)activity;
+        txtAltura = (EditText) mainActivity.findViewById(R.id.txtAltura);
+        txtIdade = (EditText) mainActivity.findViewById(R.id.txtIdade);
+        txtPeso = (EditText) mainActivity.findViewById(R.id.txtPeso);*/
+
         pessoa.setAltura(Double.parseDouble(txtAltura.getText().toString()));
         pessoa.setIdade(Integer.parseInt(txtIdade.getText().toString()));
         pessoa.setMassa(Double.parseDouble(txtPeso.getText().toString()));
@@ -34,14 +41,12 @@ public class HomeActivityHelper implements ViewHelper {
     }
 
 
-    @Override
-    public void getModel(Activity activity) {
+    /*public void setActivity(Activity activity, Pessoa pessoa) {
+        MainActivity mainActivity = (MainActivity)activity;
+        txtAltura = (EditText) mainActivity.findViewById(R.id.txtAltura);
+        txtIdade = (EditText) mainActivity.findViewById(R.id.txtIdade);
+        txtPeso = (EditText) mainActivity.findViewById(R.id.txtPeso);
+        txtAltura.setText(String.valueOf(pessoa.getAltura()));
 
-
-    }
-
-    @Override
-    public void setActivity(Activity activity, Model model) {
-
-    }
+    }*/
 }

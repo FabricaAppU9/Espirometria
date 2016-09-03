@@ -12,6 +12,7 @@ import android.widget.EditText;
 
 import espirometria.fabricaapp.uninove.com.br.procalc.R;
 import espirometria.fabricaapp.uninove.com.br.procalc.controllers.Calculo;
+import espirometria.fabricaapp.uninove.com.br.procalc.helper.HomeActivityHelper;
 import espirometria.fabricaapp.uninove.com.br.procalc.models.Pessoa;
 
 
@@ -34,13 +35,10 @@ public class MainActivity extends AppCompatActivity {
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Pessoa pessoa = new Pessoa();
+                HomeActivityHelper helper = new HomeActivityHelper(MainActivity.this);
+                Pessoa pessoa = helper.getModel(MainActivity.this);
                 Calculo calculo = new Calculo();
 
-                //Inserir nesse if a função de validação
-                //if(validar(Pessoa)){
-                    //Chamar cálculo
-                //}
             }
         });
     }
