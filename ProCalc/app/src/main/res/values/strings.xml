@@ -27,4 +27,7 @@
     <string name="textoSobre3">Autor: Dr. Sérgio R. Nacif - Trabalho de Mestrado - Univap 2006</string>
 
     <string name="textoSobre4">Desenvolvido por: Fábrica de Apps Uninove - 2016</string>
+    <string name="title_activity_faixas_limite">FaixasLimiteActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

@@ -15,6 +15,8 @@ import espirometria.fabricaapp.uninove.com.br.procalc.controllers.Calculo;
 import espirometria.fabricaapp.uninove.com.br.procalc.helper.HomeActivityHelper;
 import espirometria.fabricaapp.uninove.com.br.procalc.models.Pessoa;
 
+import static espirometria.fabricaapp.uninove.com.br.procalc.R.id.actionFaixas;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
             // Ao clicar no icone "Informações" abre a activity de informações
             case R.id.actionSobre:
                 startActivity(new Intent(this, InfoActivity.class));
+                break;
+            case R.id.actionFaixas:
+                startActivity(new Intent(this, FaixasLimiteActivity.class));
                 break;
         }
         return true;

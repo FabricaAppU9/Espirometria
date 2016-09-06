@@ -9,7 +9,7 @@
     <item
         android:id="@+id/actionFaixas"
         android:icon="@mipmap/ic_announcement_white_24dp"
-        android:title=""
-        android:showAsAction="ifRoom"/>
+        android:title="Faixas Limite"
+        android:showAsAction="always"/>
 
 </menu>
