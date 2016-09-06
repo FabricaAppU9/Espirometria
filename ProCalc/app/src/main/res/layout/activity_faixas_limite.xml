@@ -1,25 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:stretchColumns="1">
-<TableRow>
-    <TextView
-        android:text="teste"
-        android:padding="3dip" />
-    <TextView
-        android:text="teste"
-        android:gravity="right"
-        android:padding="3dip" />
-</TableRow>
+android:layout_height="wrap_content">
 
-<TableRow>
-    <TextView
-        android:text="teste"
-        android:padding="3dip" />
-    <TextView
-        android:text="teste"
-        android:gravity="right"
-        android:padding="3dip" />
-</TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="160dp"
+            android:text="Masculino"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="160dp"
+            android:text="Feminino"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="160dp"
+            android:text="teste"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="160dp"
+            android:text="teste"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"/>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="160dp"
+            android:text="teste"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="160dp"
+            android:text="teste"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"/>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="160dp"
+            android:text="teste"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="160dp"
+            android:text="teste"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Informe das Faixas Limite"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"/>
+    </TableRow>
+
 </TableLayout>
