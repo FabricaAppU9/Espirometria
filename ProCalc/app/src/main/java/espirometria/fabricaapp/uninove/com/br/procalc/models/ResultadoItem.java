@@ -19,6 +19,18 @@ public class ResultadoItem {
     public void setInferior(double limite) {
         this.limite = limite;
     }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    private String titulo;
     private double previsto;
     private double limite;
+
+
 }

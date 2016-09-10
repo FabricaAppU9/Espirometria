@@ -9,7 +9,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="espirometria.fabricaapp.uninove.com.br.procalc.activities.InfoActivity">
 
+    <!--Logo vem aqui -->
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textoSobre"
+        android:id="@+id/textView3"
+        android:layout_marginBottom="12dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textoSobre4"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

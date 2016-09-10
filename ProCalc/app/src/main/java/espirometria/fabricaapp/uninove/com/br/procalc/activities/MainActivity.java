@@ -9,12 +9,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.RadioButton;
 
 import espirometria.fabricaapp.uninove.com.br.procalc.R;
+import espirometria.fabricaapp.uninove.com.br.procalc.adapters.ResultadoItemAdapter;
 import espirometria.fabricaapp.uninove.com.br.procalc.controllers.Calculo;
 import espirometria.fabricaapp.uninove.com.br.procalc.helper.HomeActivityHelper;
 import espirometria.fabricaapp.uninove.com.br.procalc.models.Pessoa;
+import espirometria.fabricaapp.uninove.com.br.procalc.models.Resultado;
 
 import static espirometria.fabricaapp.uninove.com.br.procalc.R.id.actionFaixas;
 
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton btnMasc, btnFem;
     public Character genero;
     Button btnCalcular;
+    ListView lvResultado;
 
 
     @Override
@@ -36,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         txtAltura = (EditText) findViewById(R.id.txtAltura);
         txtIdade = (EditText) findViewById(R.id.txtIdade);
         txtPeso = (EditText) findViewById(R.id.txtPeso);
-
+        lvResultado = (ListView) findViewById(R.id.lvResultado);
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,10 +49,18 @@ public class MainActivity extends AppCompatActivity {
                 Pessoa pessoa = helper.getModel(MainActivity.this);
                 Calculo calculo = new Calculo();
 
-                calculo.calcular(pessoa);
+                updateListResult(calculo.calcular(pessoa));
 
             }
         });
+    }
+
+
+    public void updateListResult(Resultado res){
+
+        ResultadoItemAdapter adapter = new ResultadoItemAdapter(this,res.toList());
+        lvResultado.setAdapter(adapter);
+
     }
 
     //Tratando evento de click do Gênero

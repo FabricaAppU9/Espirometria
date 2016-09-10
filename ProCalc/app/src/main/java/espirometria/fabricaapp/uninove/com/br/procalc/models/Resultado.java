@@ -1,5 +1,8 @@
 package espirometria.fabricaapp.uninove.com.br.procalc.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by internet on 03/09/2016.
  */
@@ -59,6 +62,21 @@ public class Resultado {
     public void setPfe(ResultadoItem pfe) {
         this.pfe = pfe;
     }
+
+    public ArrayList<ResultadoItem> toList(){
+        ArrayList<ResultadoItem> list = new ArrayList<ResultadoItem>();
+        list.add(this.cv);
+        list.add(this.cvf);
+        list.add(this.vef);
+        list.add(this.fef);
+        list.add(this.vefcvf);
+        list.add(this.fefcvf);
+        list.add(this.pfe);
+
+        return list;
+    }
+
+
     private ResultadoItem cv;
     private ResultadoItem cvf;
     private ResultadoItem vef;

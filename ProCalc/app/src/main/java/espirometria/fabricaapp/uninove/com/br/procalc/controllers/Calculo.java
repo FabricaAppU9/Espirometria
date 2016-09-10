@@ -179,12 +179,20 @@ public class Calculo {
         ResultadoItem  resVefCvf = new ResultadoItem();
         ResultadoItem  resFefCvf = new ResultadoItem();
 
+        resCv.setTitulo("CV(L)");
+        resCvf.setTitulo("CVF(L)");
+        resVef.setTitulo("VEF (L)");
+        resFef.setTitulo("FEF(L/s)");
+        resVefCvf.setTitulo("VEF/CVF(%)");
+        resFefCvf.setTitulo("FEF/CVF(%)");
+
 
         switch(pessoa.getSexo()){
-            case 'm':
+            case 'M':
                 if(pessoa.getIdade() < 14){
 
                     //CVF Previsto
+
                     resCvf.setPrevisto(arredondar(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondamentoCVFPrevisto - numSubtracaoCVFPrevisto),2));
                     //CVF Inferior
                     resCvf.setInferior(arredondar(resCvf.getPrevisto() * numArredondamentoCVFInferior , 2));
@@ -283,7 +291,7 @@ public class Calculo {
 
                 break;
 
-            case 'f':
+            case 'F':
 
                 if(pessoa.getIdade() < 14){
 
@@ -408,6 +416,7 @@ public class Calculo {
             System.out.println("fefcvf inferior " + resFefCvf.getInferior());
         }
 
+        //res.set
         return res;
     }
 }
