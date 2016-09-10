@@ -79,7 +79,7 @@ public class TesteUnitarioProCalc {
 
                     String[] Coluna = line.split(cvsSplitBy);
 
-                    //System.out.println("Coluna [Sexo=" + Coluna[0] + ",Idade= " + Coluna[1] + ",Estatura=" + Coluna[2] + ",CVF previsto=" + Coluna[3] + ",CVF inferior=" + Coluna[4] + ",CV previsto=" + Coluna[5] + ",CV inferior=" + Coluna[6] + ",vef previsto=" + Coluna[7] + ",fef previsto=" + Coluna[8] + ",vefcvf previsto=" + Coluna[9] + ",vefcvf inferior=" + Coluna[10] + ",fefcvf previsto=" + Coluna[11] + ",vefcvf inferior=" + Coluna[12] + "]");
+                    System.out.println("Coluna [Sexo=" + Coluna[0] + ",Idade= " + Coluna[1] + ",Estatura=" + Coluna[2] + ",CVF previsto=" + Coluna[3] + ",CVF inferior=" + Coluna[4] + ",CV previsto=" + Coluna[5] + ",CV inferior=" + Coluna[6] + ",vef previsto=" + Coluna[7] + ",fef previsto=" + Coluna[8] + ",vefcvf previsto=" + Coluna[9] + ",vefcvf inferior=" + Coluna[10] + ",fefcvf previsto=" + Coluna[11] + ",vefcvf inferior=" + Coluna[12] + "]");
 
                     pessoa.setMassa(0);
                     pessoa.setSexo(Coluna[0].toLowerCase().charAt(0));
@@ -152,28 +152,30 @@ public class TesteUnitarioProCalc {
 
 //                    resultadoitem = resultado.getPfe();
 //                  if (Double.parseDouble(Coluna[13]) != resultadoitem.getPrevisto()){status = "Incorreto";} //pfe
-
-                    System.out.println("\n Status= " + status + ","
-                                     + "\n Sexo= " + Coluna[0] + ","
-                                     + "\n Idade= " + Coluna[1] + ","
-                                     + "\n Estatura= " + Coluna[2] + ","
-                                     + "\n CVF previsto= " + Coluna[3] + " | " + getCvf_Previsto + ","
-                                     + "\n CVF inferior= " + Coluna[4] + " | " + getCvf_Inferior + ","
-                                     + "\n CV previsto= " + Coluna[5] + " | " + getCv_Previsto + ","
-                                     + "\n CV inferior= " + Coluna[6] + " | " + getCv_Inferior + ","
-                                     + "\n vef previsto= " + Coluna[7] + " | " + getVef_Previsto + ","
-                                     + "\n fef previsto= " + Coluna[8] + " | " + getFef_Previsto + ","
-                                     + "\n vefcvf previsto= " + Coluna[9] + " | " + getVefcvf_Previsto + ","
-                                     + "\n vefcvf inferior= " + Coluna[10] + " | " + getVefcvf_Inferior + ","
-                                     + "\n fefcvf previsto= " + Coluna[11] + " | " + getFefcvf_Previsto + ","
-                                     + "\n vefcvf inferior= " + Coluna[12] + " | " + getFefcvf_Inferior + ","
-                                     + "\n pef= " + Coluna[13] + "");
-                    //System.out.println("Status=" + status + ",Sexo=" + Coluna[0] + ",Idade= " + Coluna[1] + ",Estatura=" + Coluna[2] + ",CVF previsto=" + Coluna[3] + ",CVF inferior=" + Coluna[4] + ",CV previsto=" + Coluna[5] + ",CV inferior=" + Coluna[6] + ",vef previsto=" + Coluna[7] + ",fef previsto=" + Coluna[8] + ",vefcvf previsto=" + Coluna[9] + ",vefcvf inferior=" + Coluna[10] + ",fefcvf previsto=" + Coluna[11] + ",vefcvf inferior=" + Coluna[12] + ",pef=" + Coluna[13] + "");
                     
-                    //content = status + "," + Coluna[0] + "," + Coluna[1] + "," + Coluna[2] + "," + Coluna[3] + "," + Coluna[4] + "," + Coluna[5] + "," + Coluna[6] + "," + Coluna[7] + "," + Coluna[8] + "," + Coluna[9] + "," + Coluna[10] + "," + Coluna[11] + "," + Coluna[12] + "," + Coluna[13] + "";
-                    content = "Teste 01";
-                    bw.write(content);
-                    bw.newLine();
+                    if(!status.equals("Incorreto")){
+                        String dados =  "\n Status= " + status + ","
+                                         + "\n Sexo= " + Coluna[0] + ","
+                                         + "\n Idade= " + Coluna[1] + ","
+                                         + "\n Estatura= " + Coluna[2] + ","
+                                         + "\n CVF previsto= " + Coluna[3] + " | " + getCvf_Previsto + ","
+                                         + "\n CVF inferior= " + Coluna[4] + " | " + getCvf_Inferior + ","
+                                         + "\n CV previsto= " + Coluna[5] + " | " + getCv_Previsto + ","
+                                         + "\n CV inferior= " + Coluna[6] + " | " + getCv_Inferior + ","
+                                         + "\n vef previsto= " + Coluna[7] + " | " + getVef_Previsto + ","
+                                         + "\n fef previsto= " + Coluna[8] + " | " + getFef_Previsto + ","
+                                         + "\n vefcvf previsto= " + Coluna[9] + " | " + getVefcvf_Previsto + ","
+                                         + "\n vefcvf inferior= " + Coluna[10] + " | " + getVefcvf_Inferior + ","
+                                         + "\n fefcvf previsto= " + Coluna[11] + " | " + getFefcvf_Previsto + ","
+                                         + "\n vefcvf inferior= " + Coluna[12] + " | " + getFefcvf_Inferior + ","
+                                         + "\n pef= " + Coluna[13] + "";
+                        //System.out.println("Status=" + status + ",Sexo=" + Coluna[0] + ",Idade= " + Coluna[1] + ",Estatura=" + Coluna[2] + ",CVF previsto=" + Coluna[3] + ",CVF inferior=" + Coluna[4] + ",CV previsto=" + Coluna[5] + ",CV inferior=" + Coluna[6] + ",vef previsto=" + Coluna[7] + ",fef previsto=" + Coluna[8] + ",vefcvf previsto=" + Coluna[9] + ",vefcvf inferior=" + Coluna[10] + ",fefcvf previsto=" + Coluna[11] + ",vefcvf inferior=" + Coluna[12] + ",pef=" + Coluna[13] + "");
+
+                        //content = status + "," + Coluna[0] + "," + Coluna[1] + "," + Coluna[2] + "," + Coluna[3] + "," + Coluna[4] + "," + Coluna[5] + "," + Coluna[6] + "," + Coluna[7] + "," + Coluna[8] + "," + Coluna[9] + "," + Coluna[10] + "," + Coluna[11] + "," + Coluna[12] + "," + Coluna[13] + "";
+                        content = dados;
+                        bw.write(content);
+                        bw.newLine();
+                    }
                 
                 }
                 
