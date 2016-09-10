@@ -3,6 +3,7 @@ package espirometria.fabricaapp.uninove.com.br.procalc.helper;
 import android.app.Activity;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 import espirometria.fabricaapp.uninove.com.br.procalc.R;
 import espirometria.fabricaapp.uninove.com.br.procalc.activities.MainActivity;
@@ -16,6 +17,7 @@ public class HomeActivityHelper {
     private  EditText txtAltura;
     private  EditText txtIdade;
     private  EditText txtPeso;
+    private  Character strGenero;
 
     private Pessoa pessoa;
 
@@ -23,6 +25,7 @@ public class HomeActivityHelper {
         txtAltura = (EditText) activity.findViewById(R.id.txtAltura);
         txtIdade = (EditText) activity.findViewById(R.id.txtIdade);
         txtPeso = (EditText) activity.findViewById(R.id.txtPeso);
+        strGenero = activity.genero;
         pessoa = new Pessoa();
     }
 
@@ -37,6 +40,7 @@ public class HomeActivityHelper {
         pessoa.setAltura(Double.parseDouble(txtAltura.getText().toString()));
         pessoa.setIdade(Integer.parseInt(txtIdade.getText().toString()));
         pessoa.setMassa(Double.parseDouble(txtPeso.getText().toString()));
+        pessoa.setSexo(strGenero);
         return pessoa;
     }
 

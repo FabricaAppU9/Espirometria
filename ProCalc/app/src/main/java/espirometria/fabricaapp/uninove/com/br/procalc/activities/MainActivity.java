@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 import espirometria.fabricaapp.uninove.com.br.procalc.R;
 import espirometria.fabricaapp.uninove.com.br.procalc.controllers.Calculo;
@@ -21,6 +22,8 @@ import static espirometria.fabricaapp.uninove.com.br.procalc.R.id.actionFaixas;
 public class MainActivity extends AppCompatActivity {
 
     EditText txtAltura, txtIdade, txtPeso;
+    RadioButton btnMasc, btnFem;
+    public Character genero;
     Button btnCalcular;
 
 
@@ -41,8 +44,34 @@ public class MainActivity extends AppCompatActivity {
                 Pessoa pessoa = helper.getModel(MainActivity.this);
                 Calculo calculo = new Calculo();
 
+                calculo.calcular(pessoa);
+
             }
         });
+    }
+
+    //Tratando evento de click do Gênero
+    public void onRadioButtonClicked(View view){
+        // Verifica se algum botao foi clicado
+        boolean checked = ((RadioButton) view).isChecked();
+
+        //Verifica qual botao foi selecionado
+        switch(view.getId()) {
+            case R.id.btnFem:
+                if (checked) {
+                    genero = 'F';
+                    view.setBackgroundResource(R.mipmap.female_checked);
+                    findViewById(R.id.btnMasc).setBackgroundResource(R.mipmap.masculine_unchecked);
+                }
+                break;
+            case R.id.btnMasc:
+                if (checked){
+                    genero = 'M';
+                    view.setBackgroundResource(R.mipmap.masculine_checked);
+                    findViewById(R.id.btnFem).setBackgroundResource(R.mipmap.female_unchecked);
+                }
+                break;
+        }
     }
 
     // Trazendo o menu para a Action Bar
