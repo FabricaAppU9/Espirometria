@@ -416,7 +416,13 @@ public class Calculo {
             System.out.println("fefcvf inferior " + resFefCvf.getInferior());
         }
 
-        //res.set
+        res.setCv(resCv);
+        res.setCvf(resCvf);
+        res.setVef(resVef);
+        res.setFef(resFef);
+        res.setVefcvf(resVefCvf);
+        res.setFefcvf(resFefCvf);
+
         return res;
     }
 }
