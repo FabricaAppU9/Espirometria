@@ -1,6 +1,7 @@
 package br.com.uninove.fabricaapp.espirometria.controllers;
 
 import br.com.uninove.fabricaapp.espirometria.models.*;
+import java.text.DecimalFormat;
 
 public class Calculo {
     
@@ -168,6 +169,7 @@ public class Calculo {
         return Math.ceil(num);
     }
     
+    
     public Resultado calcular(Pessoa pessoa){
         Resultado res            = new Resultado();
         ResultadoItem  resCv     = new ResultadoItem();
@@ -177,15 +179,15 @@ public class Calculo {
         ResultadoItem  resVefCvf = new ResultadoItem();
         ResultadoItem  resFefCvf = new ResultadoItem();
         
-       
+
         switch(pessoa.getSexo()){
             case 'm':
                 if(pessoa.getIdade() < 14){
-                    
+                    /*ALTERAÇÃO BY JUNIOR AND LEO - ALTERAÇÃO NO CALCULO SEGUINDO A PLANILHA 'DADOS DE CALCULO' PARA FAZER O LOG DA ALTURA*/
                     //CVF Previsto
-                    resCvf.setPrevisto(arredondar(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondamentoCVFPrevisto - numSubtracaoCVFPrevisto),2));
+                    resCvf.setPrevisto(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * numArredondamentoCVFPrevisto) - numSubtracaoCVFPrevisto));
                     //CVF Inferior
-                    resCvf.setInferior(arredondar(resCvf.getPrevisto() * numArredondamentoCVFInferior , 2));
+                    resCvf.setInferior(Math.round(resCvf.getPrevisto() * numArredondamentoCVFInferior));
 
                     //CV Previsto
                     resCv.setPrevisto(resCvf.getPrevisto());
@@ -193,14 +195,14 @@ public class Calculo {
                     resCv.setInferior(resCvf.getInferior());
                     
                     //vef Previsto
-                    resVef.setPrevisto(arredondar(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondamentoVefPrevisto - numSubtracaoVefPrevisto),2));
+                    resVef.setPrevisto((Math.pow(NEPER, (Math.log(pessoa.getAltura()) * numArredondamentoVefPrevisto) - numSubtracaoVefPrevisto)));
                     //vef Inferior
-                    resVef.setInferior(arredondar(resVef.getPrevisto() * numArredondamentoVefInferior,2));
+                    resVef.setInferior(Math.round(resVef.getPrevisto() * numArredondamentoVefInferior));
                     
                     //fef Previsto 
-                    resFef.setPrevisto(arredondar(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondamentoFefPrevisto - numSubtracaoFefPrevisto),2));
+                    resFef.setPrevisto((Math.pow(NEPER, (Math.log(pessoa.getAltura()) * numArredondamentoFefPrevisto) - numSubtracaoFefPrevisto)));
                     //fef Inferior
-                    resFef.setInferior(arredondar(resFef.getPrevisto() * numArredondamentoFefInferior,2));
+                    resFef.setInferior(Math.round((resFef.getPrevisto() * numArredondamentoFefInferior)));
                     
                     //vefcvf Previsto
                     resVefCvf.setPrevisto(vefcvfPrevisto);
@@ -409,8 +411,8 @@ public class Calculo {
         res.setCv(resCv);
         res.setVef(resVef);
         res.setFef(resFef);
-        res.setVefcvf(resCvf);
-        res.setFefcvf(resCvf);
+        res.setVefcvf(resVefCvf);
+        res.setFefcvf(resFefCvf);
 
         return res;
     }
