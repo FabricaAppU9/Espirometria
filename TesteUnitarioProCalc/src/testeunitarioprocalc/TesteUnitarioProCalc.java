@@ -80,10 +80,9 @@ public class TesteUnitarioProCalc {
 
                     String[] Coluna = line.split(cvsSplitBy);
 
-<<<<<<< HEAD
+
                     /*COMENTARIO BY JUNIOR AND LEO - ESSE SYSTEM É USADO0 PARA DEBUGAR O QUE A COLUNA ESTA LENDO, SUA REMOÇÃO NAO ALTERA A LOGICA DO PROGRAMA*/
-=======
->>>>>>> 7fa43333392ad6a6fd73f27b3d66631d6b2f72f1
+
                     System.out.println("Coluna [Sexo=" + Coluna[0] + ",Idade= " + Coluna[1] + ",Estatura=" + Coluna[2] + ",CVF previsto=" + Coluna[3] + ",CVF inferior=" + Coluna[4] + ",CV previsto=" + Coluna[5] + ",CV inferior=" + Coluna[6] + ",vef previsto=" + Coluna[7] + ",fef previsto=" + Coluna[8] + ",vefcvf previsto=" + Coluna[9] + ",vefcvf inferior=" + Coluna[10] + ",fefcvf previsto=" + Coluna[11] + ",vefcvf inferior=" + Coluna[12] + "]");
 
                     pessoa.setMassa(0);
@@ -157,7 +156,7 @@ public class TesteUnitarioProCalc {
 
 //                    resultadoitem = resultado.getPfe();
 //                  if (Double.parseDouble(Coluna[13]) != resultadoitem.getPrevisto()){status = "Incorreto";} //pfe
-<<<<<<< HEAD
+
     
                     System.out.println("\n Status= " + status + ","
                                      + "\n Sexo= " + Coluna[0] + ","
@@ -180,7 +179,7 @@ public class TesteUnitarioProCalc {
                     content = "Teste 01";
                     bw.write(content);
                     bw.newLine();
-=======
+
                     
                     if(!status.equals("Incorreto")){
                         String dados =  "\n Status= " + status + ","
@@ -205,7 +204,7 @@ public class TesteUnitarioProCalc {
                         bw.write(content);
                         bw.newLine();
                     }
->>>>>>> 7fa43333392ad6a6fd73f27b3d66631d6b2f72f1
+
                 
                 }
                 
