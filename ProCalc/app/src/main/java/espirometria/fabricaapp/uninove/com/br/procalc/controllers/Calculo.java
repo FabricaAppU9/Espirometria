@@ -172,6 +172,7 @@ public class Calculo {
 
     public Resultado calcular(Pessoa pessoa){
         Resultado res            = new Resultado();
+        ResultadoItem  resPfe     = new ResultadoItem();
         ResultadoItem  resCv     = new ResultadoItem();
         ResultadoItem  resCvf    = new ResultadoItem();
         ResultadoItem  resVef    = new ResultadoItem();
@@ -416,6 +417,7 @@ public class Calculo {
             System.out.println("fefcvf inferior " + resFefCvf.getInferior());
         }
 
+        res.setPfe(resPfe);
         res.setCv(resCv);
         res.setCvf(resCvf);
         res.setVef(resVef);

@@ -52,7 +52,9 @@ public class ResultadoItemAdapter extends BaseAdapter {
         TextView txtLimite = (TextView)convertView.findViewById(R.id.txtLimite);
 
         ResultadoItem res = getItem(position);
-
+        if(res==null){
+            System.out.print("Veio nullo");
+        }
         txtTitulo.setText(res.getTitulo());
         txtPrevisto.setText(String.valueOf(res.getPrevisto()));
         txtLimite.setText(String.valueOf(res.getInferior()));

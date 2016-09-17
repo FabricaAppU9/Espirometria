@@ -32,5 +32,9 @@ public class ResultadoItem {
     private double previsto;
     private double limite;
 
+    public ResultadoItem(){
+        this.titulo="-";
+    }
+
 
 }
