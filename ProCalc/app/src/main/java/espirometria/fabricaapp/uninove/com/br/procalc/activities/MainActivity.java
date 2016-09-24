@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import espirometria.fabricaapp.uninove.com.br.procalc.R;
 import espirometria.fabricaapp.uninove.com.br.procalc.adapters.ResultadoItemAdapter;
@@ -45,14 +46,32 @@ public class MainActivity extends AppCompatActivity {
         txtIdade = (EditText) findViewById(R.id.txtIdade);
         txtPeso = (EditText) findViewById(R.id.txtPeso);
         lvResultado = (ListView) findViewById(R.id.lvResultado);
+        btnMasc = (RadioButton) findViewById(R.id.btnMasc);
+        btnFem = (RadioButton) findViewById(R.id.btnFem);
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeActivityHelper helper = new HomeActivityHelper(MainActivity.this);
-                Pessoa pessoa = helper.getModel(MainActivity.this);
-                Calculo calculo = new Calculo();
 
-                updateListResult(calculo.calcular(pessoa));
+                if( txtAltura.getText().toString().trim().equals("")){
+
+                    txtAltura.setError( "Altura não preenchida!" );
+
+                } else if( txtIdade.getText().toString().trim().equals("")){
+
+                    txtIdade.setError( "Idade não preenchida!" );
+
+                } else if( txtPeso.getText().toString().trim().equals("")){
+
+                    txtPeso.setError( "Peso não preenchido!" );
+
+                } else if (!(btnMasc.isChecked()) || !(btnFem.isChecked())){
+                    Toast.makeText(getApplicationContext(), "Selecione um gênero!", Toast.LENGTH_SHORT).show();
+                } else {
+                    HomeActivityHelper helper = new HomeActivityHelper(MainActivity.this);
+                    Pessoa pessoa = helper.getModel(MainActivity.this);
+                    Calculo calculo = new Calculo();
+                    updateListResult(calculo.calcular(pessoa));
+                }
 
                 InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
                 imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
@@ -75,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         boolean checked = ((RadioButton) view).isChecked();
 
         //Verifica qual botao foi selecionado
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.btnFem:
                 if (checked) {
                     genero = 'F';
@@ -84,13 +103,14 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.btnMasc:
-                if (checked){
+                if (checked) {
                     genero = 'M';
                     view.setBackgroundResource(R.mipmap.masculine_checked);
                     findViewById(R.id.btnFem).setBackgroundResource(R.mipmap.female_unchecked);
                 }
                 break;
         }
+
     }
 
     // Trazendo o menu para a Action Bar
