@@ -22,13 +22,21 @@
     <string name="btnSobre">Sobre</string>
 
     <!-- Activitie Informações -->
-    <string name="textoSobre">Calculadore de Previstos ou Teóricos para a população Brasileira
+    <string name="textoSobre">Calculadora de Previstos ou Teóricos para a população Brasileira
         De acordo com as equações de Pereira - 1992 {Pneumobil} e Mallozi - 19995
         Autor: Dr. Sérgio R. Nacif - Trabalho de Mestrado - Univap 2006</string>
 
     <string name="textoSobre4">Desenvolvido por: Fábrica de Apps Uninove - 2016</string>
 
-    <string name="title_activity_faixas_limite">FaixasLimiteActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_faixas_limite">Informe das Faixas Limite</string>
+    <string name="masculino1">6 a 14 anos  115 a 160 cm</string>
+    <string name="masculino2">15 a 24 anos  155 a 185 cm</string>
+    <string name="masculino3">25 a 78 anos  152 a 182 cm</string>
+
+    <string name="feminino1">6 a 14 anos  116 a 167 cm</string>
+    <string name="feminino2">15 a 19 anos  144 a 174 cm</string>
+    <string name="feminino3">20 a 76 anos  136 a 170 cm</string>
+
+    <string name="InformeText">As equações de previstos consideram estas 3 faixas etárias e respectivas estaturas.</string>
+    <string name="InformeText2">Deve haver cautela para valores fora destas faixas (idades/estatura)</string>
 </resources>

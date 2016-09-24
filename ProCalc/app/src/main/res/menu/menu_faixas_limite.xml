@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="espirometria.fabricaapp.uninove.com.br.procalc.activities.FaixasLimiteActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/actionSobre"
+        android:icon="@mipmap/ic_info_outline_white"
+        android:title="@string/btnSobre"
+        android:showAsAction="always"/>
+
+    <item
+        android:id="@+id/actionFaixas"
+        android:icon="@mipmap/ic_announcement_white_24dp"
+        android:title="Faixas Limite"
+        android:showAsAction="always"/>
 </menu>
