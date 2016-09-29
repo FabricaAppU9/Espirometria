@@ -46,7 +46,6 @@
                 android:id="@+id/btnMasc"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:checked="true"
                 android:onClick="onRadioButtonClicked"/>
 
             <RadioButton

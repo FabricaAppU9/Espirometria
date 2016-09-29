@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton btnMasc, btnFem;
     public Character genero;
     Button btnCalcular;
+    boolean checked;
     ListView lvResultado;
 
 
@@ -52,19 +53,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if( txtAltura.getText().toString().trim().equals("")){
-
-                    txtAltura.setError( "Altura não preenchida!" );
-
-                } else if( txtIdade.getText().toString().trim().equals("")){
+                if( txtIdade.getText().toString().trim().equals("")){
 
                     txtIdade.setError( "Idade não preenchida!" );
+
+                } else if( txtAltura.getText().toString().trim().equals("")){
+
+                    txtAltura.setError( "Altura não preenchida!" );
 
                 } else if( txtPeso.getText().toString().trim().equals("")){
 
                     txtPeso.setError( "Peso não preenchido!" );
 
-                } else if (!(btnMasc.isChecked()) || !(btnFem.isChecked())){
+                } else if(!checked){
                     Toast.makeText(getApplicationContext(), "Selecione um gênero!", Toast.LENGTH_SHORT).show();
                 } else {
                     HomeActivityHelper helper = new HomeActivityHelper(MainActivity.this);
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     //Tratando evento de click do Gênero
     public void onRadioButtonClicked(View view){
         // Verifica se algum botao foi clicado
-        boolean checked = ((RadioButton) view).isChecked();
+        checked = ((RadioButton) view).isChecked();
 
         //Verifica qual botao foi selecionado
         switch (view.getId()) {
@@ -110,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
+
+
 
     }
 
