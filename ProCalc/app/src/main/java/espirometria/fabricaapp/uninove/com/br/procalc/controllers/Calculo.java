@@ -397,32 +397,9 @@ public class Calculo {
                 }
                 break;
             default:
-                System.out.println("Este sexo não foi reconhecido.");
                 System.exit(0);
         }
-        //Resultados:
-        System.out.println("\n ====== Pro calc ====== ");
-
-        if(pessoa.getIdade()<6){
-            System.out.println("Obs.: A idade do paciente está abaixo da faixa regida pela SBPT");
-
-        }else if(pessoa.getIdade()>76){
-            System.out.println("Obs.: A idade do paciente está acima da faixa regida pela SBPT");
-
-            System.out.println("cvf previsto: "   + resCvf.getPrevisto());
-            System.out.println("cvf inferior "    + resCvf.getInferior());
-            System.out.println("cv previsto "     + resCv.getPrevisto());
-            System.out.println("cv inferior "     + resCv.getInferior());
-            System.out.println("vef previsto "    + resVef.getPrevisto());
-            System.out.println("vef inferior "    + resVef.getInferior());
-            System.out.println("fef previsto "    + resFef.getPrevisto());
-            System.out.println("fef inferior "    + resFef.getInferior());
-            System.out.println("vefcvf previsto " + resVefCvf.getPrevisto());
-            System.out.println("vefcvf inferior " + resVefCvf.getInferior());
-            System.out.println("fefcvf previsto " + resFefCvf.getPrevisto());
-            System.out.println("fefcvf inferior " + resFefCvf.getInferior());
-        }
-
+        
         res.setPfe(resPfe);
         res.setCv(resCv);
         res.setCvf(resCvf);
