@@ -9,6 +9,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/title_activity_faixas_limite"/>
     </LinearLayout>
@@ -19,80 +20,77 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Titulo"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:foregroundGravity="center_horizontal"
+        android:paddingBottom="15dp">
 
         <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:gravity="center"
-            android:layout_gravity="center_horizontal">
+        android:layout_height="wrap_content">
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:paddingBottom="10dp">
                 <TextView
-                    android:layout_width="160dp"
+                    android:layout_width="wrap_content"
                     android:text="Masculino"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:gravity="center"/>
                 <TextView
-                    android:layout_width="160dp"
+                    android:layout_width="wrap_content"
                     android:text="Feminino"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:gravity="center"/>
             </TableRow>
 
-            <TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="10dp">
                 <TextView
-                    android:layout_width="160dp"
+                    android:layout_width="wrap_content"
                     android:text="@string/masculino1"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:paddingRight="8dp"/>
                 <TextView
-                    android:layout_width="160dp"
+                    android:layout_width="wrap_content"
                     android:text="@string/feminino1"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:gravity="center"/>
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="10dp">
                 <TextView
-                    android:layout_width="160dp"
+                    android:layout_width="wrap_content"
                     android:text="@string/masculino2"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:paddingRight="8dp"/>
                 <TextView
-                    android:layout_width="160dp"
+                    android:layout_width="wrap_content"
                     android:text="@string/feminino2"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:gravity="center"/>
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="10dp">
                 <TextView
                     android:layout_width="160dp"
                     android:text="@string/masculino3"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:paddingRight="8dp"/>
                 <TextView
                     android:layout_width="160dp"
                     android:text="@string/feminino3"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:gravity="center"/>
             </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"></TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </TableRow>
-
         </TableLayout>
     </LinearLayout>
 
@@ -101,8 +99,9 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Tabela"
-        android:layout_centerHorizontal="true">
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:layout_below="@+id/Tabela">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -114,6 +113,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Para1"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
         android:layout_centerHorizontal="true">
         <TextView
             android:layout_width="match_parent"

@@ -22,11 +22,16 @@
     <string name="btnSobre">Sobre</string>
 
     <!-- Activitie Informações -->
-    <string name="textoSobre">Calculadora de Previstos ou Teóricos para a população Brasileira
-        De acordo com as equações de Pereira - 1992 {Pneumobil} e Mallozi - 19995
-        Autor: Dr. Sérgio R. Nacif - Trabalho de Mestrado - Univap 2006</string>
+    <string name="appDescription">Calculadora de Previstos ou Teóricos para a população Brasileira</string>
+    <string name="textoSobre">
+        As equações são realizadas de acordo com as equações de Pereira - 1992 {Pneumobil} e Mallozi - 1995
+    </string>
 
-    <string name="textoSobre4">Desenvolvido por: Fábrica de Apps Uninove - 2016</string>
+    <string name="authorLabel">Autor</string>
+
+    <string name="authorValue">Autor: Dr. Sérgio R. Nacif - Trabalho de Mestrado - Univap 2006</string>
+
+    <string name="fabricaAppUni9">Desenvolvido por: Fábrica de Apps - 2016</string>
 
     <string name="title_activity_faixas_limite">Informe das Faixas Limite</string>
     <string name="masculino1">6 a 14 anos  115 a 160 cm</string>

@@ -10,21 +10,64 @@
     tools:context="espirometria.fabricaapp.uninove.com.br.procalc.activities.InfoActivity">
 
     <!--Logo vem aqui -->
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/textoSobre"
-        android:id="@+id/textView3"
-        android:layout_marginBottom="12dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/AppInfo"
+        android:paddingBottom="15dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tituloInfo"
+            android:text="@string/appDescription"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/textoSobre4"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/AppInfoParagraph2"
+        android:layout_below="@id/AppInfo">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textoSobre"
+            android:id="@+id/textView3"
+            android:layout_marginBottom="12dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/AppInfoParagraph3"
+        android:layout_below="@id/AppInfoParagraph2"
+        android:paddingBottom="15dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/authorValue"
+            android:layout_below="@+id/AppInfoParagraph2"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/AppInfoParagraph4"
+        android:layout_below="@id/AppInfoParagraph3">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fabricaAppUni9"
+            android:layout_below="@+id/AppInfoParagraph2"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
+
 </RelativeLayout>
