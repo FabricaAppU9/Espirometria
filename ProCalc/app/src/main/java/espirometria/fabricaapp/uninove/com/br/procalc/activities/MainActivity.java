@@ -20,9 +20,12 @@ import android.widget.Toast;
 import espirometria.fabricaapp.uninove.com.br.procalc.R;
 import espirometria.fabricaapp.uninove.com.br.procalc.adapters.ResultadoItemAdapter;
 import espirometria.fabricaapp.uninove.com.br.procalc.controllers.Calculo;
+import espirometria.fabricaapp.uninove.com.br.procalc.controllers.Validacao;
 import espirometria.fabricaapp.uninove.com.br.procalc.helper.HomeActivityHelper;
 import espirometria.fabricaapp.uninove.com.br.procalc.models.Pessoa;
 import espirometria.fabricaapp.uninove.com.br.procalc.models.Resultado;
+import espirometria.fabricaapp.uninove.com.br.procalc.models.ResultadoItem;
+import espirometria.fabricaapp.uninove.com.br.procalc.models.ResultadoValidacao;
 
 import static espirometria.fabricaapp.uninove.com.br.procalc.R.id.actionFaixas;
 
@@ -70,8 +73,31 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     HomeActivityHelper helper = new HomeActivityHelper(MainActivity.this);
                     Pessoa pessoa = helper.getModel(MainActivity.this);
+                    Validacao val = new Validacao();
+                    ResultadoValidacao resVal = val.validar(pessoa);
                     Calculo calculo = new Calculo();
-                    updateListResult(calculo.calcular(pessoa));
+                    if (resVal.isResultado()){
+                        updateListResult(calculo.calcular(pessoa));
+                    } else{
+                        Toast.makeText(MainActivity.this, resVal.getMensagen(), Toast.LENGTH_SHORT).show();
+                        Resultado res = calculo.calcular(pessoa);
+                        res.getCv().setPrevisto(0);
+                        res.getCvf().setPrevisto(0);
+                        res.getFef().setPrevisto(0);
+                        res.getFefcvf().setPrevisto(0);
+                        res.getVefcvf().setPrevisto(0);
+                        res.getPfe().setPrevisto(0);
+                        res.getVef().setPrevisto(0);
+
+                        res.getCv().setInferior(0);
+                        res.getCvf().setInferior(0);
+                        res.getFef().setInferior(0);
+                        res.getFefcvf().setInferior(0);
+                        res.getVefcvf().setInferior(0);
+                        res.getPfe().setInferior(0);
+                        res.getVef().setInferior(0);
+                        updateListResult(res);
+                    }
                 }
 
                 InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
