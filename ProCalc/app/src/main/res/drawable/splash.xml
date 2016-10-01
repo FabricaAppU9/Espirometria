@@ -7,7 +7,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/icone-espirometria"/>
+            android:src="@drawable/icone_espirometria"/>
     </item>
 
 </layer-list>
