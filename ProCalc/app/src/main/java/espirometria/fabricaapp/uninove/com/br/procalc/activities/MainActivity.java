@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     if (resVal.isResultado()){
                         updateListResult(calculo.calcular(pessoa));
                     } else{
-                        Toast.makeText(MainActivity.this, resVal.getMensagen(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, resVal.getMensagen(), Toast.LENGTH_LONG).show();
                         Resultado res = calculo.calcular(pessoa);
                         res.getCv().setPrevisto(0);
                         res.getCvf().setPrevisto(0);
