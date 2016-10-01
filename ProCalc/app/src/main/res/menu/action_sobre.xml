@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/actionSobre"
         android:icon="@mipmap/ic_info_outline_white"
         android:title="@string/btnSobre"
-        android:showAsAction="always"/>
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/actionFaixas"
         android:icon="@mipmap/ic_announcement_white_24dp"
         android:title="Faixas Limite"
-        android:showAsAction="always"/>
+        app:showAsAction="always"/>
 
 </menu>
