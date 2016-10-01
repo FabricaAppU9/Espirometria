@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,16 +31,14 @@ import espirometria.fabricaapp.uninove.com.br.procalc.models.ResultadoValidacao;
 
 import static espirometria.fabricaapp.uninove.com.br.procalc.R.id.actionFaixas;
 
-
 public class MainActivity extends AppCompatActivity {
 
     EditText txtAltura, txtIdade, txtPeso;
     RadioButton btnMasc, btnFem;
     public Character genero;
     Button btnCalcular;
-    boolean checked;
     ListView lvResultado;
-
+    boolean checked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
 
+    }
 
     public void updateListResult(Resultado res){
 
