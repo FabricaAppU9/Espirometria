@@ -1,10 +1,14 @@
 package espirometria.fabricaapp.uninove.com.br.procalc.activities;
 
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.renderscript.ScriptGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -41,9 +46,22 @@ public class MainActivity extends AppCompatActivity {
     boolean checked;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+
+        if (tabletSize) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+
+        } else {
+
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+
 
         btnCalcular = (Button) findViewById(R.id.btnCalcular);
         txtAltura = (EditText) findViewById(R.id.txtAltura);
@@ -145,14 +163,26 @@ public class MainActivity extends AppCompatActivity {
     // Trazendo o menu para a Action Bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.action_sobre, menu);
-        return true;
+
+        boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+
+        if (tabletSize) {
+
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.action_tablet, menu);
+            return true;
+        } else {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.action_sobre, menu);
+            return true;
+        }
+
     }
 
     // Ações do Menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
+
         switch (item.getItemId()){
             // Ao clicar no icone "Informações" abre a activity de informações
             case R.id.actionSobre:
