@@ -1,10 +1,14 @@
 package espirometria.fabricaapp.uninove.com.br.procalc.activities;
 
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.renderscript.ScriptGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -40,10 +45,36 @@ public class MainActivity extends AppCompatActivity {
     ListView lvResultado;
     boolean checked;
 
+
+    /*
+     * Classe util para esconder teclado quando fora de foco
+     * Para chamar a função, usar:
+     * hideSoftKeyboard(this)
+    */
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+
+        if (tabletSize) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+
+        } else {
+
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+
 
         btnCalcular = (Button) findViewById(R.id.btnCalcular);
         txtAltura = (EditText) findViewById(R.id.txtAltura);
@@ -103,10 +134,42 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+                if (!checked) {
+                    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+                } else {
+
+                }
 
             }
         });
+
+        txtAltura.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
+        txtIdade.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
+        txtPeso.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+
 
     }
 
@@ -147,14 +210,26 @@ public class MainActivity extends AppCompatActivity {
     // Trazendo o menu para a Action Bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.action_sobre, menu);
-        return true;
+
+        boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+
+        if (tabletSize) {
+
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.action_tablet, menu);
+            return true;
+        } else {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.action_sobre, menu);
+            return true;
+        }
+
     }
 
     // Ações do Menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
+
         switch (item.getItemId()){
             // Ao clicar no icone "Informações" abre a activity de informações
             case R.id.actionSobre:
