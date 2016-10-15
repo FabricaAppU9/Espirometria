@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         res.getPfe().setPrevisto(0);
                         res.getVef().setPrevisto(0);
 
+
                         res.getCv().setInferior(0);
                         res.getCvf().setInferior(0);
                         res.getFef().setInferior(0);
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         res.getVefcvf().setInferior(0);
                         res.getPfe().setInferior(0);
                         res.getVef().setInferior(0);
+
                         updateListResult(res);
                     }
                 }
