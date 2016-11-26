@@ -152,30 +152,26 @@ public class Calculo {
     static double numArredondamentoFEFCVFFemininoPrevistoMaior191 = 0.4237;
     static double numArredondamentoFEFCVFFemininoInferiorMaior19 = 0.6;
 
-    static double[][] variaveis = new double[7][2];
 
     /**************************************************************************************]
-     * Os valores das variaveis estão sendo representadas como:
-     *
-     * variaveis [0][0], variaveis[0][1] equivalem a CV Previsto e  CV Inferior
-     *
-     * variaveis [1][0], variaveis[1][1] equivalem a CVF Previsto e CVF Inferior
-     *
-     * variaveis [2][0], variaveis[2][1] equivalem a VEF Previsto e VEF Inferior
-     *
-     * variaveis [3][0], variaveis[3][1] equivalem a FEF Previsto e FEF Inferior
-     *
-     * variaveis [4][0], variaveis[4][1] equivalem a VEFCVF Previsto e VEFCVF Inferior
-     *
-     * variaveis [5][0], variaveis[5][1] equivalem a FEFCVF Previsto e FEFCVF Inferior
      *
      * @param num
      */
     ///Arredondamento para cima do valor // duas casas decimais
 
-     /*Caso o valor da 2º for impar e a 3º casa for 5 :  aumentar
-     Caso o valor da 2º for  par e a 3º casa for 5 :  manter*
-     Caso o valor da 2º for  par e a 3º casa for > 5 :  aumenta*/
+     /*
+         Caso o valor da 2º for impar e a 3º casa for 5 :  aumentar
+         Caso o valor da 2º for  par e a 3º casa for 5 :  manter*
+         Caso o valor da 2º for  par e a 3º casa for > 5 :  aumenta
+
+         26/11/2016 - Guilherme Golfetto
+         Alterado calculo do VEF/FEF inferior - (idade maior que 14)
+         Resolvido problema no calculo de CV, corrigido problema de digitação  por motivos desconhecidos
+         Valores Validados em relação ao Pro Calc
+
+     */
+
+
     public double arredondar(double num){
         try{
             DecimalFormat  valorString = new DecimalFormat("#.000");
@@ -280,12 +276,12 @@ public class Calculo {
                     //vef Previsto
                     resVef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * numArredondamentoVEFPrevisto241)+ (Math.log(pessoa.getIdade()) * numArredondamentoVEFPrevisto242) + (Math.log(pessoa.getMassa()) * numArredondamentoVEFPrevisto243) - numSubtracaoVEFPrevisto241)).replace(",",".")));
                     //vef Inferior
-                    resVef.setInferior(Double.parseDouble(formatValue.format(arredondar(resVef.getInferior() * numArredondamentoVEFInferior241)).replace(",",".")));
+                    resVef.setInferior(Double.parseDouble(formatValue.format(arredondar(resVef.getPrevisto() * numArredondamentoVEFInferior241)).replace(",",".")));
 
                     //fef Previsto
                     resFef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * numArredondamentoFEFPrevisto241) + (Math.log(pessoa.getMassa()) * numArredondamentoFEFPrevisto242) - numSubtracaoFEFPrevisto241)).replace(",",".")));
                     //fef Inferior
-                    resFef.setInferior(Double.parseDouble(formatValue.format(arredondar(resFef.getInferior() * numArredondamentoFEFInferior241)).replace(",",".")));
+                    resFef.setInferior(Double.parseDouble(formatValue.format(arredondar(resFef.getPrevisto() * numArredondamentoFEFInferior241)).replace(",",".")));
 
                     //vefcvf Previsto
                     resVefCvf.setPrevisto(numVEFCVFPrevisto241);
@@ -377,7 +373,7 @@ public class Calculo {
                     //cv previsto
                     resCv.setPrevisto(Double.parseDouble(formatValue.format(resCvf.getPrevisto()).replace(",",".")));
                     //cv inferior
-                    resCvf.setInferior(Double.parseDouble(formatValue.format(resCvf.getInferior()).replace(",",".")));
+                    resCv.setInferior(Double.parseDouble(formatValue.format(resCvf.getInferior()).replace(",",".")));
 
                     //vef previsto
                     resVef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondamentoVEFFemininoPrevisto19 +Math.log(pessoa.getIdade()) * numArredondamentoVEFFemininoPrevisto191 + Math.log(pessoa.getMassa()) * numArredondamentoVEFFemininoPrevisto192 - numSubtracaoVEFFemininoPrevisto19)).replace(",",".")));
@@ -433,7 +429,7 @@ public class Calculo {
             default:
                 System.exit(0);
         }
-        
+
         res.setPfe(resPfe);
         res.setCv(resCv);
         res.setCvf(resCvf);
