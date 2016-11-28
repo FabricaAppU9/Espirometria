@@ -1,4 +1,4 @@
-package espirometria.fabricaapp.uninove.com.br.procalc.controllers;
+﻿package espirometria.fabricaapp.uninove.com.br.procalc.controllers;
 
 import java.awt.font.NumericShaper;
 import java.math.BigDecimal;
@@ -168,6 +168,8 @@ public class Calculo {
          Alterado calculo do VEF/FEF inferior - (idade maior que 14)
          Resolvido problema no calculo de CV, corrigido problema de digitação  por motivos desconhecidos
          Valores Validados em relação ao Pro Calc
+         27/11/2016 - Guilherme Golfetto
+         Incluido desiçao na contagem de casas decimais no arredondamento, por algum motivo arremessava uma execeção em alguns casos
 
      */
 
@@ -187,7 +189,10 @@ public class Calculo {
             numeroFormatado = numeroFormatado.substring(3,4);
 
             primeiraCasa =  Integer.valueOf(numeroFormatado.charAt(0));
-            segundaCasa =  Integer.valueOf(numeroFormatado.charAt(1));
+
+            if(numeroFormatado.length() > 1){
+                segundaCasa =  Integer.valueOf(numeroFormatado.charAt(1));
+            }
 
             if(primeiraCasa % 2 != 0 && segundaCasa == 5 ){
                 arredondamento = 0.01;
