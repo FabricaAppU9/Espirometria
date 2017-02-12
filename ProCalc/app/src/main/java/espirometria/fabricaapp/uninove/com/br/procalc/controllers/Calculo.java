@@ -1,11 +1,13 @@
-﻿package espirometria.fabricaapp.uninove.com.br.procalc.controllers;
-
+package  espirometria.fabricaapp.uninove.com.br.procalc.controllers;
 import java.awt.font.NumericShaper;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
+
+
+import espirometria.fabricaapp.uninove.com.br.procalc.R;
 import espirometria.fabricaapp.uninove.com.br.procalc.models.*;
 
 /**
@@ -153,9 +155,86 @@ public class Calculo {
     static double numArredondamentoFEFCVFFemininoInferiorMaior19 = 0.6;
 
 
+    /**********************************
+     *  Novas Constantes para novo calculo
+     */
+    static double mascNumArredondamentoCVFNum1 = 0.0517;
+    static double mascNumArredondamentoCVFNum2 = -0.0207;
+    static double mascNumArredondamentoCVFNum3 = -3.18;
+
+    static double mascNumArredondamentoCVFInferiorNum1 = 0.90;
+
+    static double mascNumArredondamentoVEFNum1 = 0.0338;
+    static double mascNumArredondamentoVEFNum2 = -0.0252;
+    static double mascNumArredondamentoVEFNum3 = -0.789;
+
+    static double mascNumArredondamentoVEFinferiorNum1 = 0.76;
+
+    static double mascNumArredondamentoVEF6Num1  = 0.0521;
+    static double mascNumArredondamentoVEF6Num2  = -0.0229;
+    static double mascNumArredondamentoVEF6Num3  = -3.179;
+
+    static double mascNumArredondamentoVEF6InferiorNum1   = 0.87;
+
+    static double mascNumArredondamentoFEF2575Num1 = -0.687;
+    static double mascNumArredondamentoFEF2575Num2 = 3.93;
+
+    static double mascNumArredondamentoFEF2575InferiorNum1  = 0.59;
+
+    static double mascNumArredondamentoVEF1CVFNum1  = -0.175;
+    static double mascNumArredondamentoVEF1CVFNum2  = -0.197;
+    static double mascNumArredondamentoVEF1CVFNum3  = 120.3;
+
+    static double mascNumArredondamentoVEF1CVFInferiorNum1 = 7.6;
+
+    static double mascNumArredondamentoFEF2575CVFNum1  = -1.609;
+    static double mascNumArredondamentoFEF2575CVFNum2  = -0.454;
+    static double mascNumArredondamentoFEF2575CVFNum3  = 14.39;
+
+    static double mascNumArredondamentoFEF2575CVFInferiorNum1 = 0.64;
+
+    static double femNumArredondamentoCVFNum1 = 0.0441;
+    static double femNumArredondamentoCVFNum2 = - 0.0189;
+    static double femNumArredondamentoCVFNum3 = - 2.848;
+
+    static double femNumArredondamentoCVFInferiorNum1 = 0.64;
+
+    static double femNumArredondamentoVEFNum1 = 0.0314;
+    static double femNumArredondamentoVEFNum2 = - 0.0203;
+    static double femNumArredondamentoVEFNum3 = - 1.353;
+
+    static double femNumArredondamentoVEFinferiorNum1 = 0.61;
+
+    static double femNumArredondamentoVEF6Num1  = 0.0437;
+    static double femNumArredondamentoVEF6Num2  = - 0.0196;
+    static double femNumArredondamentoVEF6Num3  = - 2.769;
+
+    static double femNumArredondamentoVEF6InferiorNum1   = 0.63;
+
+    static double femNumArredondamentoFEF2575Num1 = 0.998;
+    static double femNumArredondamentoFEF2575Num2 = - 0.588;
+    static double femNumArredondamentoFEF2575Num3 = -1.852;
+
+    static double femNumArredondamentoFEF2575InferiorNum1  = 0.57;
+
+    static double femNumArredondamentoVEF1CVFNum1  = - 0.140;
+    static double femNumArredondamentoVEF1CVFNum2  = - 0.158;
+    static double femNumArredondamentoVEF1CVFNum3  = 111.5;
+
+    static double femNumArredondamentoVEF1CVFInferiorNum1 = 8.50;
+
+    static double femNumArredondamentoFEF2575CVFNum1  = - 1.401;
+    static double femNumArredondamentoFEF2575CVFNum2  = - 0.319;
+    static double femNumArredondamentoFEF2575CVFNum3  = 12.73;
+
+    static double femNumArredondamentoFEF2575CVFInferiorNum1 = 0.61;
+
+
+
+
     /**************************************************************************************]
      *
-     * @param num
+     * @param
      */
     ///Arredondamento para cima do valor // duas casas decimais
 
@@ -210,7 +289,10 @@ public class Calculo {
             return 0;
         }
     }
-    public Resultado calcular(Pessoa pessoa){
+
+
+    /**descontinuado*/
+    public Resultado calcular_old(Pessoa pessoa){
         Resultado res            = new Resultado();
         ResultadoItem  resPfe     = new ResultadoItem();
         ResultadoItem  resCv     = new ResultadoItem();
@@ -446,4 +528,228 @@ public class Calculo {
 
         return res;
     }
+
+
+
+    public Resultado calcular(Pessoa pessoa){
+
+        Resultado res            = new Resultado();
+        ResultadoItem  resPfe    = new ResultadoItem();
+        ResultadoItem  resCv     = new ResultadoItem();
+        ResultadoItem  resCvf    = new ResultadoItem();
+        ResultadoItem  resVef    = new ResultadoItem();
+        ResultadoItem  resVef6   = new ResultadoItem();
+        ResultadoItem  resFef    = new ResultadoItem();
+        ResultadoItem  resVefCvf = new ResultadoItem();
+        ResultadoItem  resFefCvf = new ResultadoItem();
+
+        resCv.setTitulo("CV(L)");
+        resCvf.setTitulo("CVF(L)");
+        resVef.setTitulo("VEF (L)");
+        resVef6.setTitulo("VEF (6)");
+        resFef.setTitulo("FEF(L/s)");
+        resVefCvf.setTitulo("VEF/CVF(%)");
+        resFefCvf.setTitulo("FEF/CVF(%)");
+        resPfe.setTitulo("PFE");
+
+        DecimalFormat  formatValue = new DecimalFormat("#.00");
+        switch(pessoa.getSexo()){
+            case 'M':
+                if(pessoa.getIdade() < 14){
+
+                  /*ALTERAÇÃO:  LEO - ALTERAÇÃO NO CALCULO SEGUINDO O PADRÃO JÁ TESTADO DA TESTEPROCALC*/
+                    //CVF Previsto
+                    resCvf.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * numArredondamentoCVFPrevisto) - numSubtracaoCVFPrevisto)).replace(",",".")));
+                    //CVF Inferior
+                    resCvf.setInferior(Double.parseDouble(formatValue.format(resCvf.getPrevisto() * numArredondamentoCVFInferior).replace(",",".")));
+
+                    //CV Previsto
+                    resCv.setPrevisto(Double.parseDouble(formatValue.format(resCvf.getPrevisto()).replace(",",".")));
+                    //CV Inferior
+                    resCv.setInferior(Double.parseDouble(formatValue.format(resCvf.getInferior()).replace(",",".")));
+
+                    //vef Previsto
+                    resVef.setPrevisto(Double.parseDouble(formatValue.format((Math.pow(NEPER, (Math.log(pessoa.getAltura()) * numArredondamentoVefPrevisto) - numSubtracaoVefPrevisto))).replace(",",".")));
+                    //vef Inferior
+                    resVef.setInferior(Double.parseDouble(formatValue.format(arredondar(resVef.getPrevisto() * numArredondamentoVefInferior)).replace(",",".")));
+
+                    //fef Previsto
+                    resFef.setPrevisto(Double.parseDouble(formatValue.format((Math.pow(NEPER, (Math.log(pessoa.getAltura()) * numArredondamentoFefPrevisto) - numSubtracaoFefPrevisto))).replace(",",".")));
+                    //fef Inferior
+                    resFef.setInferior(Double.parseDouble(formatValue.format(arredondar((resFef.getPrevisto() * numArredondamentoFefInferior))).replace(",",".")));
+
+                    //vefcvf Previsto
+                    resVefCvf.setPrevisto(vefcvfPrevisto);
+                    //vefcvf Inferior
+                    resVefCvf.setInferior(vefcvInferior);
+
+                    //feefcvf Previsto
+                    resFefCvf.setPrevisto(feefcvfPrevisto);
+                    //feefcvf Inferior
+                    resFefCvf.setInferior(feefcvfInferior);
+
+
+                }else if(pessoa.getIdade() > 14 && pessoa.getIdade() <= 24){
+
+                    //CVF Previsto
+                    resCvf.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER,((Math.log(pessoa.getAltura()) * 1.31) + (Math.log(pessoa.getIdade()) * 0.317)+ (Math.log(pessoa.getMassa()) * 0.3529) -7.6487))).replace(",",".")));
+                    //CVF Inferior
+                    resCvf.setInferior(Double.parseDouble(formatValue.format(resCvf.getPrevisto() * numArredondamentoCVFInferior241).replace(",",".")));
+
+                    //CV Previsto
+                    resCv.setPrevisto(Double.parseDouble(formatValue.format(resCvf.getPrevisto()).replace(",",".")));
+                    //CV Inferior
+                    resCv.setInferior(Double.parseDouble(formatValue.format(resCvf.getInferior()).replace(",",".")));
+
+
+                    //vef Previsto
+                    resVef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * numArredondamentoVEFPrevisto241)+ (Math.log(pessoa.getIdade()) * numArredondamentoVEFPrevisto242) + (Math.log(pessoa.getMassa()) * numArredondamentoVEFPrevisto243) - numSubtracaoVEFPrevisto241)).replace(",",".")));
+                    //vef Inferior
+                    resVef.setInferior(Double.parseDouble(formatValue.format(arredondar(resVef.getPrevisto() * numArredondamentoVEFInferior241)).replace(",",".")));
+
+                    //fef Previsto
+                    resFef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * numArredondamentoFEFPrevisto241) + (Math.log(pessoa.getMassa()) * numArredondamentoFEFPrevisto242) - numSubtracaoFEFPrevisto241)).replace(",",".")));
+                    //fef Inferior
+                    resFef.setInferior(Double.parseDouble(formatValue.format(arredondar(resFef.getPrevisto() * numArredondamentoFEFInferior241)).replace(",",".")));
+
+                    //vefcvf Previsto
+                    resVefCvf.setPrevisto(numVEFCVFPrevisto241);
+                    //vefcvf Inferior
+                    resVefCvf.setInferior(numVEFCVFInferior241);
+
+                    //fefcvf Previsto
+                    resFefCvf.setPrevisto(numVEFCVFPrevisto241);
+                    //fefcvf Inferior
+                    resFefCvf.setInferior(numVEFCVFInferior241);
+
+                }else if(pessoa.getIdade() > 24 ){
+                    //acerto de calculo 11/02
+                    resCvf.setPrevisto(Double.parseDouble(formatValue.format((pessoa.getAltura() * mascNumArredondamentoCVFNum1) + (pessoa.getIdade() * mascNumArredondamentoCVFNum2) + (mascNumArredondamentoCVFNum3)).replace(",", ".")));
+                    resCvf.setInferior(Double.parseDouble(formatValue.format( resCvf.getPrevisto() - mascNumArredondamentoCVFInferiorNum1).replace(",",".")));
+
+                    resCv.setPrevisto(Double.parseDouble(formatValue.format(resCvf.getPrevisto()).replace(",",".")));
+                    resCv.setInferior(Double.parseDouble(formatValue.format(resCvf.getInferior()).replace(",",".")));
+
+                    resVef.setPrevisto(Double.parseDouble(formatValue.format((pessoa.getAltura() * mascNumArredondamentoVEFNum1) + (pessoa.getIdade() * mascNumArredondamentoVEFNum2) + (mascNumArredondamentoVEFNum3)).replace(",",".")));
+                    resVef.setInferior(Double.parseDouble(formatValue.format( resVef.getPrevisto() - mascNumArredondamentoVEFinferiorNum1).replace(",",".")));
+
+                    resVef6.setPrevisto(Double.parseDouble(formatValue.format((pessoa.getAltura() * mascNumArredondamentoVEF6Num1) + (pessoa.getIdade() * mascNumArredondamentoVEF6Num2) + (mascNumArredondamentoVEF6Num3)).replace(",",".")));
+                    resVef6.setInferior(Double.parseDouble(formatValue.format(resVef6.getPrevisto() - mascNumArredondamentoVEF6InferiorNum1).replace(",",".")));
+
+                    resFef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getIdade()) * mascNumArredondamentoFEF2575Num1) + mascNumArredondamentoFEF2575Num2 )).replace(",",".")));
+                    resFef.setInferior( Double.parseDouble(formatValue.format( resFef.getPrevisto() * mascNumArredondamentoFEF2575InferiorNum1).replace(",",".")));
+
+                    resVefCvf.setPrevisto( Double.parseDouble(formatValue.format((pessoa.getAltura() * mascNumArredondamentoVEF1CVFNum1) + (pessoa.getIdade() * mascNumArredondamentoVEF1CVFNum2) + (mascNumArredondamentoVEF1CVFNum3)).replace(",",".")));
+                    resVefCvf.setInferior( Double.parseDouble(formatValue.format(resVefCvf.getPrevisto() - mascNumArredondamentoVEF1CVFInferiorNum1).replace(",",".")));
+
+                    resFefCvf.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * mascNumArredondamentoFEF2575CVFNum1) + (Math.log(pessoa.getIdade()) * mascNumArredondamentoFEF2575CVFNum2 ) + mascNumArredondamentoFEF2575CVFNum3 )).replace(",",".")));
+                    resFefCvf.setInferior(Double.parseDouble(formatValue.format(resFefCvf.getPrevisto() * mascNumArredondamentoFEF2575CVFInferiorNum1).replace(",",".")));
+
+                }
+                break;
+
+            case 'F':
+
+
+                if(pessoa.getIdade() < 14){
+
+                    //cvf previsto
+                    resCvf.setPrevisto(Double.parseDouble(formatValue.format(pessoa.getAltura() * numArredondarCVFFemininoPrevisto + pessoa.getIdade() * numArredondarCVFFemininoPrevisto2 + pessoa.getMassa() * numArredondarCVFFemininoPrevisto3 - numArredondarCVFFemininoPrevisto4).replace(",",".")));
+                    //cvf inferior
+                    resCvf.setInferior(Double.parseDouble(formatValue.format(resCvf.getPrevisto() - numSubtracaoCVFFemininoPrevisto).replace(",",".")));
+
+                    //cv previsto
+                    resCv.setPrevisto(Double.parseDouble(formatValue.format(resCvf.getPrevisto()).replace(",",".")));
+                    //cv inferior
+                    resCv.setInferior(Double.parseDouble(formatValue.format(resCvf.getInferior()).replace(",",".")));
+
+                    //vef previsto
+                    resVef.setPrevisto(Double.parseDouble(formatValue.format(pessoa.getAltura() * numArredondamentoVEFFemininoPrevisto + pessoa.getIdade() * numArredondamentoVEFFemininoPrevisto2 +pessoa.getMassa() * numArredondamentoVEFFemininoPrevisto3 - numArredondamentoVEFFemininoPrevisto4).replace(",",".")));
+                    //vef inferior
+                    resVef.setInferior(Double.parseDouble(formatValue.format(arredondar(resVef.getPrevisto() - numSubtracaoVEFFemininoPrevisto)).replace(",",".")));
+
+                    //fef previsto
+                    resFef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER,Math.log(pessoa.getAltura()) * numArredondamentoFEFFemininoPrevisto +Math.log(pessoa.getIdade()) * numArredondamentoFEFFemininoPrevisto2 - numSubtracaoFEFFemininoPrevisto)).replace(",",".")));
+                    //fef inferior
+                    resFef.setInferior(Double.parseDouble(formatValue.format(arredondar(resFef.getPrevisto() * numArredondamentoFEFFemininoInferior)).replace(",",".")));
+
+                    //vefcvf previsto
+                    resVefCvf.setPrevisto(numArredondamentoveVEFCVFemininoPrevisto);
+                    //vefcvf inferior
+                    resVefCvf.setInferior(numArredondamentoveVEFCVFemininoInferior);
+
+                    //fefcvf previsto
+                    resFefCvf.setPrevisto(numArredondamentoFEFCVFFemininoPrevisto);
+                    //fefcvf inferior
+                    resFefCvf.setInferior(numArredondamentoFEFCVFFemininoInferior);
+
+                }else if(pessoa.getIdade() > 14 && pessoa.getIdade() <= 19){
+
+                    //cvf previsto
+                    resCvf.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondarCVFFemininoPrevisto19 + Math.log(pessoa.getIdade()) * numArredondarCVFFemininoPrevisto192 +Math.log(pessoa.getMassa()) * numArredondarCVFFemininoPrevisto193 - numSubtracaoCVFFemininoPrevisto19)).replace(",",".")));
+                    //cvf inferior
+                    resCvf.setInferior(Double.parseDouble(formatValue.format(resCvf.getPrevisto() * numArredondarCVFFemininoInferior19).replace(",",".")));
+
+                    //cv previsto
+                    resCv.setPrevisto(Double.parseDouble(formatValue.format(resCvf.getPrevisto()).replace(",",".")));
+                    //cv inferior
+                    resCv.setInferior(Double.parseDouble(formatValue.format(resCvf.getInferior()).replace(",",".")));
+
+                    //vef previsto
+                    resVef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, Math.log(pessoa.getAltura()) * numArredondamentoVEFFemininoPrevisto19 +Math.log(pessoa.getIdade()) * numArredondamentoVEFFemininoPrevisto191 + Math.log(pessoa.getMassa()) * numArredondamentoVEFFemininoPrevisto192 - numSubtracaoVEFFemininoPrevisto19)).replace(",",".")));
+                    //vef inferior
+                    resVef.setInferior(Double.parseDouble(formatValue.format(arredondar(resVef.getPrevisto() * numArredondamentoVEFFemininoInferior19)).replace(",",".")));
+
+                    //fef previsto
+                    resFef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER,Math.log(pessoa.getAltura()) * numArredondamentoFEFFemininoPrevisto19 + Math.log(pessoa.getIdade()) * numArredondamentoFEFFemininoPrevisto191 - numSubtracaoFEFFemininoPrevisto192)).replace(",",".")));
+                    //fef inferior
+                    resFef.setInferior(Double.parseDouble(formatValue.format(arredondar((resFef.getPrevisto() * numArredondamentoFEFInferior19))).replace(",",".")));
+
+                    //vefcvf previsto
+                    resVefCvf.setPrevisto(numVEFCVFFemininoPrevisto19);
+                    //vefcvf inferior
+                    resVefCvf.setInferior(numVEFCVFFemininoInferior19);
+
+
+                }else if(pessoa.getIdade() > 19) {
+
+                    resCvf.setPrevisto(Double.parseDouble(formatValue.format((pessoa.getAltura() * femNumArredondamentoCVFNum1) + (pessoa.getIdade() * femNumArredondamentoCVFNum2) + (femNumArredondamentoCVFNum3)).replace(",",".")));
+                    resCvf.setInferior( Double.parseDouble(formatValue.format( resCvf.getPrevisto() - femNumArredondamentoCVFInferiorNum1).replace(",",".")));
+
+                    resCv.setPrevisto( Double.parseDouble(formatValue.format(resCvf.getPrevisto()).replace(",",".")));
+                    resCv.setInferior( Double.parseDouble(formatValue.format(resCvf.getInferior()).replace(",",".")));
+
+                    resVef.setPrevisto( Double.parseDouble(formatValue.format((pessoa.getAltura() * femNumArredondamentoVEFNum1) + (pessoa.getIdade() * femNumArredondamentoVEFNum2) + (femNumArredondamentoVEFNum3)).replace(",",".")));
+                    resVef.setInferior(Double.parseDouble(formatValue.format( resCvf.getPrevisto() - femNumArredondamentoVEFinferiorNum1).replace(",",".")));
+
+                    resVef6.setPrevisto( Double.parseDouble(formatValue.format((pessoa.getAltura() * femNumArredondamentoVEF6Num1) + (pessoa.getIdade() * femNumArredondamentoVEF6Num2) + (femNumArredondamentoVEF6Num3)).replace(",",".")));
+                    resVef6.setInferior(Double.parseDouble(formatValue.format( resCvf.getPrevisto() - femNumArredondamentoVEF6InferiorNum1).replace(",",".")));
+
+                    resFef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, ( Math.log(pessoa.getAltura()) * femNumArredondamentoFEF2575Num1) + (Math.log(pessoa.getIdade()) * femNumArredondamentoFEF2575Num2 ) - femNumArredondamentoFEF2575Num3)).replace(",",".")));
+                    resFef.setInferior(Double.parseDouble(formatValue.format(resFef.getPrevisto() * femNumArredondamentoFEF2575InferiorNum1).replace(",",".")));
+
+                    resVefCvf.setPrevisto(Double.parseDouble(formatValue.format((pessoa.getAltura() * femNumArredondamentoVEF1CVFNum1) + (pessoa.getIdade() * femNumArredondamentoVEF1CVFNum2) + (femNumArredondamentoVEF1CVFNum3)).replace(",",".")));
+                    resVefCvf.setInferior(Double.parseDouble(formatValue.format(resVefCvf.getPrevisto() - mascNumArredondamentoVEF1CVFInferiorNum1).replace(",",".")));
+
+                    resFefCvf.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * femNumArredondamentoFEF2575CVFNum1) + (Math.log(pessoa.getIdade()) * femNumArredondamentoFEF2575CVFNum2 ) + femNumArredondamentoFEF2575CVFNum3 )).replace(",",".")));
+                    resFefCvf.setInferior(Double.parseDouble(formatValue.format( resFefCvf.getPrevisto() * femNumArredondamentoFEF2575CVFInferiorNum1).replace(",",".")));
+
+                }
+                break;
+            default:
+                System.exit(0);
+        }
+
+        res.setPfe(resPfe);
+        res.setCv(resCv);
+        res.setCvf(resCvf);
+        res.setVef(resVef);
+        res.setFef(resFef);
+        res.setVefcvf(resVefCvf);
+        res.setFefcvf(resFefCvf);
+
+
+        return res;
+    }
+
 }
