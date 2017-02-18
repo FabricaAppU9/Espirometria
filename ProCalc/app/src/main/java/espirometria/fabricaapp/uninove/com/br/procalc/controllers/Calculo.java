@@ -250,6 +250,13 @@ public class Calculo {
          27/11/2016 - Guilherme Golfetto
          Incluido desiçao na contagem de casas decimais no arredondamento, por algum motivo arremessava uma execeção em alguns casos
 
+        18/02/2017 - Guilherme Golfetto
+        ponto anotacao 01 - Foi alterado o calculo em relação a tabela
+        de:
+            FEF25-75 = neper ^ ( (Log(idade) * -0.687)  + 3.93)
+        para:
+            FEF25-75 = neper * ( (Log(idade) * -0.687)  + 3.93)
+
      */
 
 
@@ -636,13 +643,17 @@ public class Calculo {
                     resVef6.setPrevisto(Double.parseDouble(formatValue.format((pessoa.getAltura() * mascNumArredondamentoVEF6Num1) + (pessoa.getIdade() * mascNumArredondamentoVEF6Num2) + (mascNumArredondamentoVEF6Num3)).replace(",",".")));
                     resVef6.setInferior(Double.parseDouble(formatValue.format(resVef6.getPrevisto() - mascNumArredondamentoVEF6InferiorNum1).replace(",",".")));
 
-                    resFef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getIdade()) * mascNumArredondamentoFEF2575Num1) + mascNumArredondamentoFEF2575Num2 )).replace(",",".")));
+                    //resFef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getIdade()) * mascNumArredondamentoFEF2575Num1) + mascNumArredondamentoFEF2575Num2 )).replace(",","."))); <-- ponto anotacao 01
+
+                    resFef.setPrevisto(Double.parseDouble(formatValue.format((NEPER * (Math.log(pessoa.getIdade()) * mascNumArredondamentoFEF2575Num1) + mascNumArredondamentoFEF2575Num2 )).replace(",",".")));
                     resFef.setInferior( Double.parseDouble(formatValue.format( resFef.getPrevisto() * mascNumArredondamentoFEF2575InferiorNum1).replace(",",".")));
 
                     resVefCvf.setPrevisto( Double.parseDouble(formatValue.format((pessoa.getAltura() * mascNumArredondamentoVEF1CVFNum1) + (pessoa.getIdade() * mascNumArredondamentoVEF1CVFNum2) + (mascNumArredondamentoVEF1CVFNum3)).replace(",",".")));
                     resVefCvf.setInferior( Double.parseDouble(formatValue.format(resVefCvf.getPrevisto() - mascNumArredondamentoVEF1CVFInferiorNum1).replace(",",".")));
 
-                    resFefCvf.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * mascNumArredondamentoFEF2575CVFNum1) + (Math.log(pessoa.getIdade()) * mascNumArredondamentoFEF2575CVFNum2 ) + mascNumArredondamentoFEF2575CVFNum3 )).replace(",",".")));
+                    //resFefCvf.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * mascNumArredondamentoFEF2575CVFNum1) + (Math.log(pessoa.getIdade()) * mascNumArredondamentoFEF2575CVFNum2 ) + mascNumArredondamentoFEF2575CVFNum3 )).replace(",",".")));
+
+                    resFefCvf.setPrevisto(Double.parseDouble(formatValue.format(NEPER * (Math.log(pessoa.getAltura()) * mascNumArredondamentoFEF2575CVFNum1) + (Math.log(pessoa.getIdade()) * mascNumArredondamentoFEF2575CVFNum2 ) + mascNumArredondamentoFEF2575CVFNum3 ).replace(",",".")));
                     resFefCvf.setInferior(Double.parseDouble(formatValue.format(resFefCvf.getPrevisto() * mascNumArredondamentoFEF2575CVFInferiorNum1).replace(",",".")));
 
                 }
@@ -725,13 +736,15 @@ public class Calculo {
                     resVef6.setPrevisto( Double.parseDouble(formatValue.format((pessoa.getAltura() * femNumArredondamentoVEF6Num1) + (pessoa.getIdade() * femNumArredondamentoVEF6Num2) + (femNumArredondamentoVEF6Num3)).replace(",",".")));
                     resVef6.setInferior(Double.parseDouble(formatValue.format( resCvf.getPrevisto() - femNumArredondamentoVEF6InferiorNum1).replace(",",".")));
 
-                    resFef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, ( Math.log(pessoa.getAltura()) * femNumArredondamentoFEF2575Num1) + (Math.log(pessoa.getIdade()) * femNumArredondamentoFEF2575Num2 ) - femNumArredondamentoFEF2575Num3)).replace(",",".")));
+                    //resFef.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, ( Math.log(pessoa.getAltura()) * femNumArredondamentoFEF2575Num1) + (Math.log(pessoa.getIdade()) * femNumArredondamentoFEF2575Num2 ) - femNumArredondamentoFEF2575Num3)).replace(",",".")));
+                    resFef.setPrevisto(Double.parseDouble(formatValue.format((NEPER * ( Math.log(pessoa.getAltura()) * femNumArredondamentoFEF2575Num1) + (Math.log(pessoa.getIdade()) * femNumArredondamentoFEF2575Num2 ) - femNumArredondamentoFEF2575Num3)).replace(",",".")));
                     resFef.setInferior(Double.parseDouble(formatValue.format(resFef.getPrevisto() * femNumArredondamentoFEF2575InferiorNum1).replace(",",".")));
 
                     resVefCvf.setPrevisto(Double.parseDouble(formatValue.format((pessoa.getAltura() * femNumArredondamentoVEF1CVFNum1) + (pessoa.getIdade() * femNumArredondamentoVEF1CVFNum2) + (femNumArredondamentoVEF1CVFNum3)).replace(",",".")));
                     resVefCvf.setInferior(Double.parseDouble(formatValue.format(resVefCvf.getPrevisto() - mascNumArredondamentoVEF1CVFInferiorNum1).replace(",",".")));
 
-                    resFefCvf.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * femNumArredondamentoFEF2575CVFNum1) + (Math.log(pessoa.getIdade()) * femNumArredondamentoFEF2575CVFNum2 ) + femNumArredondamentoFEF2575CVFNum3 )).replace(",",".")));
+                    //resFefCvf.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * femNumArredondamentoFEF2575CVFNum1) + (Math.log(pessoa.getIdade()) * femNumArredondamentoFEF2575CVFNum2 ) + femNumArredondamentoFEF2575CVFNum3 )).replace(",",".")));
+                    resFefCvf.setPrevisto(Double.parseDouble(formatValue.format((NEPER * (Math.log(pessoa.getAltura()) * femNumArredondamentoFEF2575CVFNum1) + (Math.log(pessoa.getIdade()) * femNumArredondamentoFEF2575CVFNum2 ) + femNumArredondamentoFEF2575CVFNum3 )).replace(",",".")));
                     resFefCvf.setInferior(Double.parseDouble(formatValue.format( resFefCvf.getPrevisto() * femNumArredondamentoFEF2575CVFInferiorNum1).replace(",",".")));
 
                 }

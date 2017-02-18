@@ -143,9 +143,12 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="@string/btn_Calcular"
-            android:id="@+id/btnCalcular" />
+            android:id="@+id/btnCalcular"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            />
     </LinearLayout>
 
     <TableLayout

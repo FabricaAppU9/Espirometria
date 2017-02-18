@@ -143,7 +143,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_Calcular"
-                android:id="@+id/btnCalcular" />
+                android:id="@+id/btnCalcular"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"/>
         </LinearLayout>
 
     </RelativeLayout>
