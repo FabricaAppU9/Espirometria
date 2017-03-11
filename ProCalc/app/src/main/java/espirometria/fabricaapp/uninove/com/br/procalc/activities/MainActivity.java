@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                hideKeyboard(v);
                 if( txtIdade.getText().toString().trim().equals("")){
 
                     txtIdade.setError( "Idade não preenchida!" );

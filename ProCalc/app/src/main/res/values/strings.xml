@@ -4,17 +4,18 @@
     <!-- Dados Antropométricos -->
     <!-- Idade -->
     <string name="txt_idade">Idade</string>
-    <string name="hint_idade">21</string>
+    <string name="hint_idade">Idade (Anos)</string>
 
     <!-- Altura -->
     <string name="txt_Altura">Altura</string>
     <string name="unidade_Altura">cm</string>
-    <string name="hint_Altura">178</string>
+    <string name="hint_Altura">Altura (cm)</string>
 
     <!-- Peso -->
     <string name="txt_Peso">Peso</string>
     <string name="unidade_Peso">kg</string>
-    <string name="hint_Peso">79</string>
+    <string name="hint_Peso">Peso (kg)</string>
+
     <!-- Botao Calcular -->
     <string name="btn_Calcular">Calcular</string>
 
@@ -44,4 +45,8 @@
 
     <string name="InformeText">As equações de previstos consideram estas 3 faixas etárias e respectivas estaturas.</string>
     <string name="InformeText2">Deve haver cautela para valores fora destas faixas (idades/estatura)</string>
+
+    <!-- outros Textos -->
+    <string name="txtPrevisto">Previsto</string>
+    <string name="txtLimite">Limite</string>
 </resources>
