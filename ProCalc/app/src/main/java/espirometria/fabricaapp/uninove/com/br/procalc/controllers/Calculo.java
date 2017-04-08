@@ -551,7 +551,7 @@ public class Calculo {
         ResultadoItem  resVefCvf = new ResultadoItem();
         ResultadoItem  resFefCvf = new ResultadoItem();
 
-        resCv.setTitulo("CV(L)");
+        resCv.setTitulo("CVL(L)");
         resCvf.setTitulo("CVF(L)");
         resVef.setTitulo("VEF (L)");
         resVef6.setTitulo("VEF (6)");
