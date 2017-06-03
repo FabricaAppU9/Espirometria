@@ -181,8 +181,7 @@ public class Calculo {
 
     static double mascNumArredondamentoFEF2575InferiorNum1  = 0.59;
 
-    //static double mascNumArredondamentoVEF1CVFNum1  = -0.175;
-    static double mascNumArredondamentoVEF1CVFNum1  = 0.175;
+    static double mascNumArredondamentoVEF1CVFNum1  = -0.175;
     static double mascNumArredondamentoVEF1CVFNum2  = -0.197;
     static double mascNumArredondamentoVEF1CVFNum3  = 120.3;
 
@@ -652,28 +651,10 @@ public class Calculo {
                     resFef.setInferior( Double.parseDouble(formatValue.format( resFef.getPrevisto() * mascNumArredondamentoFEF2575InferiorNum1).replace(",",".")));
 
 
-
-
-
-                    // ALTERADO A CONSTANTE mascNumArredondamentoVEF1CVFNum1 ELA ESTAVA NEGATIVA.
-                    resVefCvf.setPrevisto( Double.parseDouble(formatValue.format((pessoa.getAltura() * mascNumArredondamentoVEF1CVFNum1) + (pessoa.getIdade() * mascNumArredondamentoVEF1CVFNum2) + (mascNumArredondamentoVEF1CVFNum3)).replace(",",".")));
+                    resVefCvf.setPrevisto(Double.parseDouble(formatValue.format((pessoa.getAltura() * mascNumArredondamentoVEF1CVFNum1) + (pessoa.getIdade() * mascNumArredondamentoVEF1CVFNum2) + (mascNumArredondamentoVEF1CVFNum3)).replace(",",".")));
                     resVefCvf.setInferior( Double.parseDouble(formatValue.format(resVefCvf.getPrevisto() - mascNumArredondamentoVEF1CVFInferiorNum1).replace(",",".")));
 
 
-
-
-
-                    //resFefCvf.setPrevisto(Double.parseDouble(formatValue.format(Math.pow(NEPER, (Math.log(pessoa.getAltura()) * mascNumArredondamentoFEF2575CVFNum1) + (Math.log(pessoa.getIdade()) * mascNumArredondamentoFEF2575CVFNum2 ) + mascNumArredondamentoFEF2575CVFNum3 )).replace(",",".")));
-
-
-                   //  double cvf =  (pessoa.getAltura() * mascNumArredondamentoCVFNum1) + (pessoa.getIdade() * mascNumArredondamentoCVFNum2) + (mascNumArredondamentoCVFNum3);
-
-                    // UTILIZEI O RESULTADOFEF PARA O CALCULO DO FEFCVF
-                    //double fefcvf = resultadoFEF/cvf;
-
-                    // ANTIGO
-                    //resFefCvf.setPrevisto(Double.parseDouble(formatValue.format(NEPER * (Math.log(pessoa.getAltura()) * mascNumArredondamentoFEF2575CVFNum1) + (Math.log(pessoa.getIdade()) * mascNumArredondamentoFEF2575CVFNum2 ) + mascNumArredondamentoFEF2575CVFNum3 ).replace(",",".")));
-                    double result =  0.68 * 0.64;
                     resFefCvf.setPrevisto(Double.parseDouble(formatValue.format(
                             ( Math.pow(Math.E,(-Math.log(pessoa.getIdade()) * mascNumArredondamentoFEF2575Num1 + mascNumArredondamentoFEF2575Num2)))/((pessoa.getAltura() * mascNumArredondamentoCVFNum1) + (pessoa.getIdade() * mascNumArredondamentoCVFNum2) + (mascNumArredondamentoCVFNum3))
                     ).replace(",",".")));
